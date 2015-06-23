@@ -59,19 +59,33 @@
 
 <body>
 
+  <div id="container">
+    <header id="main-header">
+      <div class="inside-margins clearfix">
+        <section class="fl">
+          <h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
+        </section>
+        <section class="fr">
+          {% if settings.display_search %}
+          <form class="search fr" action="/search">
+            <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />
+            <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
+          </form>
+          {% endif %}
+          <div class="customer-buttons fr tr">
+            <a href="/cart" class="cart fr"><img src="{{ 'icon-cart.png' | asset_url }}" alt="Shopping Cart"></a>
+            <p class="fl">{% include 'customer_links' %}</p>
+          </div>
+        </section>
+      </div>
+    </header>
+  </div>
+
   <!-- Begin toolbar -->
   <div class="toolbar-wrapper wrapper">
     <div class="toolbar span12 clearfix">
         <ul class="unstyled">
 
-          {% if settings.display_search %}
-          <li class="search-field fl">
-            <form class="search" action="/search">
-              <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
-              <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t }}" value="{{ search.terms }}"  />
-            </form>
-          </li>
-          {% endif %}
           <li id="cart-target" class="toolbar-cart {% if cart.item_count != 0 %}has-items{% endif %}">
             <a href="/cart" class="cart" title="Shopping Cart">
               <span class="icon-cart"></span>
