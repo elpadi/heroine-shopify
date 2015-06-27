@@ -78,10 +78,13 @@
           </div>
         </section>
       </div>
+      <div class="inside-margins clearfix">
+        <nav id="main-menu" class="main">{% include 'dropdown' %}</nav>
+      </div>
     </header>
   </div>
 
-  <!-- Begin toolbar -->
+  <!-- Begin toolbar ->
   <div class="toolbar-wrapper wrapper">
     <div class="toolbar span12 clearfix">
         <ul class="unstyled">
@@ -100,21 +103,21 @@
         </ul>
     </div>
   </div>
-  <!-- End toolbar -->
+  <!- End toolbar -->
 
-  <!-- Begin Mobile Nav -->
+  <!-- Begin Mobile Nav ->
   <div class="row mobile-nav-wrapper">
     <nav class="mobile clearfix">
       {% include 'mobile-menu' %}
     </nav>
   </div>
-  <!-- End Mobile Nav -->
+  <!- End Mobile Nav -->
 
   <!-- Begin wrapper -->
   <div id="transparency" class="wrapper clearfix">
     <div class="row p0">
 
-      <!-- Begin navigation -->
+      <!-- Begin navigation ->
       {% if settings.logo_alignment == "center" %}
 
         <div class="span12 clearfix">
@@ -165,7 +168,7 @@
         </div>
 
       {% endif %}
-      <!-- End navigation -->
+      <!- End navigation -->
 
       <!-- Begin content-->
       <section id="content" class="clearfix">

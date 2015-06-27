@@ -1,4 +1,14 @@
 /*********** Heroine Styles *************/
+@font-face{
+	font-family:'brandon_grotesque_regularRg';
+	src:url({{ 'brandon_reg-webfont.eot' | asset_url }});
+	src:url({{ 'brandon_reg-webfont.eot' | asset_url }}?#iefix) format('embedded-opentype'),
+		url({{ 'brandon_reg-webfont.woff' | asset_url }}) format('woff'),
+		url({{ 'brandon_reg-webfont.ttf' | asset_url }}) format('truetype'),
+		url({{ 'brandon_reg-webfont.svg' | asset_url }}#brandon_grotesque_regularRg) format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
 
 .inside-margins {
 	max-width:853px;
@@ -41,11 +51,24 @@
 .customer-buttons {
 	clear:both;
 }
+#main-header .customer-buttons > p {
+	margin-top:5px;
+	line-height:23px;
+}
 #main-header .customer-buttons a {
 	color:#b79f62;
-	font:11px 'brandon_grotesque_regularRg',sans-serif;
-	letter-spacing:1px;
+	font:0.75em brandon_grotesque_regularRg,sans-serif;
+	letter-spacing:0.05em;
 	text-transform:uppercase;
+}
+
+#main-menu {
+	margin-top:5%;
+}
+#main-menu a {
+	font:1.05em brandon_grotesque_regularRg,sans-serif;
+	letter-spacing:0.05em;
+	height:auto;
 }
 
 /*********** End Heroine ***************/
@@ -331,12 +354,11 @@ ul.expanded > li, ol.expanded > li { margin-bottom: 10px; }
 
 /* 3.3 - Navigation */
 nav { font-family:{{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}; }
-nav { position: relative; border-top:1px solid {{ settings.border_color }}; border-bottom:1px solid {{ settings.border_color }} }
 nav > ul > li { margin-bottom: 0; }
-nav > ul > li > a { text-decoration: none; color: {{ settings.nav_link_color }}; display: block; padding: 0 15px; font-size: 17px; line-height: 72px; height: 72px; font-weight: 400; -webkit-transform: rotateZ(0); transform: rotateZ(0); }
+nav > ul > li > a { text-decoration: none; color: {{ settings.nav_link_color }}; display: block; padding: 0 18px; font-size: 17px; line-height: 72px; height: 72px; font-weight: 400; -webkit-transform: rotateZ(0); transform: rotateZ(0); }
 nav > ul > li.dropdown > a { padding-right: 15px; margin-right: 10px; background:url('{{ 'arrow-dark.png' | asset_url }}') no-repeat 100% 50%; }
-nav > ul > li > a.current { color: {{ settings.nav_link_color }}; font-weight: bold; }
-nav > ul > li:hover > a { color: {{ settings.nav_link_color }}; opacity: 0.7;filter: alpha(opacity = 70);  text-decoration: none; }
+nav > ul > li > a.current { color: #68C8C6; font-weight: bold; }
+nav > ul > li:hover > a { color: #68C8C6; opacity: 0.7;filter: alpha(opacity = 70);  text-decoration: none; }
 nav > ul > li.dropdown { position:relative; }
 nav > ul > li.dropdown > .dropdown { background: #fff; list-style: none outside none; padding: 5px 15px; display: none; position: absolute; min-width: 180px; z-index: 99999; top: 100%; left: 0%; margin-left: 15px; border: 1px solid {{ settings.border_color }}; }
 nav > ul > li.dropdown:hover > .dropdown { display: block; z-index: 999999; -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.10); -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.10); box-shadow:0 0 3px rgba(0, 0, 0, 0.10); }
