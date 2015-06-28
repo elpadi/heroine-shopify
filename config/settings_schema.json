@@ -657,6 +657,30 @@
         "label": "Links to"
       },
       {
+        "type": "paragraph",
+        "content": "Slide #5"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_5"
+      },
+      {
+        "type": "image",
+        "id": "slideshow_5.jpg",
+        "label": "Show?",
+        "max-width": 966
+      },
+      {
+        "type": "text",
+        "id": "slide_5_alt",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "slide_5_link",
+        "label": "Links to"
+      },
+      {
         "type": "header",
         "content": "Homepage Products"
       },

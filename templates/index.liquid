@@ -1,28 +1,27 @@
-{% if settings.slide_1 != false or settings.slide_2 != false or settings.slide_3 != false or settings.slide_4 != false %}
+{% if settings.slide_1 != false or settings.slide_2 != false or settings.slide_3 != false or settings.slide_4 != false or settings.slide_5 != false %}
 <!-- Begin slider -->
-<div class="span12 border-bottom p30">
-  <div class="flexslider-container">
-    <div class="flexslider">
-      <ul class="slides">
-        {% for i in (1..4) %}
-          {% capture show_slide %}slide_{{ i }}{% endcapture %}
-          {% capture image %}slideshow_{{ i }}.jpg{% endcapture %}
-          {% capture link %}slide_{{ i }}_link{% endcapture %}
-          {% capture alt %}slide_{{ i }}_alt{% endcapture %}
-          {% if settings[show_slide] %}
-          <li>
-            <a href="{{ settings[link] }}">
-              <img src="{{ image | asset_url }}" alt="{{ settings[alt] | escape }}" />
-            </a>
-          </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <div class="flex-controls"></div>
-    </div>
-  </div>
+<div class="flexslider-container">
+	<div class="flexslider">
+		<ul class="slides">
+			{% for i in (1..5) %}
+				{% capture show_slide %}slide_{{ i }}{% endcapture %}
+				{% capture image %}slideshow_{{ i }}.jpg{% endcapture %}
+				{% capture link %}slide_{{ i }}_link{% endcapture %}
+				{% capture alt %}slide_{{ i }}_alt{% endcapture %}
+				{% if settings[show_slide] %}
+				<li>
+					<a href="{{ settings[link] }}">
+						<img src="{{ image | asset_url }}" alt="{{ settings[alt] | escape }}" />
+					</a>
+				</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		<div class="flex-controls"></div>
+	</div>
 </div>
 <!-- End slider -->
+<div id="slideshow-sale-tag"><a href="{{ collections.sale.url }}"><img src="{{ 'sale-sign.png' | asset_url }}" alt="On Sale"></a></div>
 {% endif %}
 
 <!-- Start products -->

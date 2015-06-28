@@ -82,6 +82,23 @@
         <nav id="main-menu" class="main">{% include 'dropdown' %}</nav>
       </div>
     </header>
+		<main id="content" class="inside-margins">
+			{% if template == "list-collections" %}
+			<div id="collection" class="row">
+				<div class="span12">
+					<h1><span>{{ 'collections.list_collections.product_collections' | t }}</span></h1>
+				</div> <!-- /.span12 -->
+			</div> <!-- /.row -->
+
+			<div class="row products masonry">
+				{% for collection in collections %}
+				{% unless collection.all_products_count == 0 or collection.handle == "frontpage" %}
+				{% include 'collection-loop' %}
+				{% endunless %}
+				{% endfor %}
+			</div> <!-- /#collection.row -->
+			{% else %}{{ content_for_layout }}{% endif %}
+		</main>
   </div>
 
   <!-- Begin toolbar ->
@@ -169,28 +186,6 @@
 
       {% endif %}
       <!- End navigation -->
-
-      <!-- Begin content-->
-      <section id="content" class="clearfix">
-          {% if template == "list-collections" %}
-          <div id="collection" class="row">
-            <div class="span12">
-              <h1><span>{{ 'collections.list_collections.product_collections' | t }}</span></h1>
-            </div> <!-- /.span12 -->
-          </div> <!-- /.row -->
-
-          <div class="row products masonry">
-            {% for collection in collections %}
-            {% unless collection.all_products_count == 0 or collection.handle == "frontpage" %}
-            {% include 'collection-loop' %}
-            {% endunless %}
-            {% endfor %}
-          </div> <!-- /#collection.row -->
-          {% else %}
-          {{ content_for_layout }}
-          {% endif %}
-      </section>
-      <!-- End content-->
 
     </div>
   </div>
