@@ -102,11 +102,11 @@
 		<footer id="main-footer">
 			<div class="inside-margins">
 				<nav id="footer-menu" class="uppercase">
-          <ul class="unstyled">
-            {% for link in linklists.footer.links %}
-              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
+				  <ul class="unstyled">
+					{% for link in linklists.footer.links %}
+					  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+					{% endfor %}
+				  </ul>
 				</nav>
 				<section id="footer-columns" class="columns--3">
 					<div id="footer-contact" class="column">
@@ -154,19 +154,28 @@
 					<div id="footer-social" class="column">
 						<h2 id="heading-follow-us">{{ 'layout.footer.follow_us' | t }}</h2>
 						<ul class="social-media-buttons">
-							{% if settings.twitter_link != blank %}<li><a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter">Twitter</a></li>{% endif %}
-							{% if settings.facebook_link != blank %}<li><a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook">Facebook</a></li>{% endif %}
 							{% if settings.youtube_link != blank %}<li><a href="{{ settings.youtube_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Youtube' }}" class="icon-social youtube">YouTube</a></li>{% endif %}
 							{% if settings.atom_link != blank %}<li><a href="{{ settings.atom_link }}" title="{{ 'layout.footer.news' | t: shop: shop.name }}" class="icon-social atom">Blog feed</a></li>{% endif %}
-							{% if settings.instagram_link != blank %}<li><a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram">Instagram</a></li>{% endif %}
-							{% if settings.pinterest_link != blank %}<li><a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest">Pinterest</a></li>{% endif %}
 							{% if settings.vimeo_link != blank %}<li><a href="{{ settings.vimeo_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Vimeo' }}" class="icon-social vimeo">Vimeo</a></li>{% endif %}
 							{% if settings.tumblr_link != blank %}<li><a href="{{ settings.tumblr_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Tumblr' }}" class="icon-social tumblr">Tumblr</a></li>{% endif %}
 							{% if settings.google_link != blank %}<li><a href="{{ settings.google_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Google+' }}" class="icon-social google" rel="publisher">Google+</a></li>{% endif %}
+							{% if settings.instagram_link != blank %}<li><a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram">Instagram</a></li>{% endif %}
+							{% if settings.pinterest_link != blank %}<li><a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest">Pinterest</a></li>{% endif %}
+							{% if settings.twitter_link != blank %}<li><a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter">Twitter</a></li>{% endif %}
+							{% if settings.facebook_link != blank %}<li><a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook">Facebook</a></li>{% endif %}
 						</ul>
 					</div>
 					<!-- End social -->
 					{% endif %}
+				</section>
+				<nav id="bottom-links">
+					<ul class="menu">
+						<li><span>Copyright &copy; 2015 Heroine</li>
+						{% for link in linklists.bottom.links %}
+						  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</nav>
 			</div>
 		</footer>
   </div>
