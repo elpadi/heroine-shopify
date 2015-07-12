@@ -1,1 +1,7 @@
+<aside id="product-menu" class="fl">
+	<nav>Side Menu</nav>
+</aside>
+{% if collection %}
+<p id="back-button" class="fr"><a href="{{ collection.url }}" title="{{ collection.title | escape }}">Back</a></p>
+{% endif %}
 {% include 'product' %}

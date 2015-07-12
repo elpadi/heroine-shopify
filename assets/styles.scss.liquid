@@ -31,6 +31,9 @@ h1 {
 	text-transform:uppercase;
 	letter-spacing:2px;
 }
+input {
+	color:#656263;
+}
 a:hover {
 	color:#68C8C6;
 }
@@ -38,6 +41,7 @@ a:hover {
 	margin-bottom:0;
 }
 
+input,
 .font--bg-reg {
 	font-family:brandon_grotesque_regularRg,sans-serif;
 }
@@ -130,13 +134,16 @@ a:hover {
 
 #main-menu {
 	margin-top:4.5%;
-	margin-bottom:4.6%;
 	padding-bottom:1%;
 	border-bottom:double 4px #E4E1DC;
+	margin-bottom:1.5%;
 }
 .template--index #main-menu {
 	border-style:none;
 	margin-bottom:0;
+}
+.template--collection #main-menu {
+	margin-bottom:4.6%;
 }
 #main-menu a {
 	font:1.05em brandon_grotesque_regularRg,sans-serif;
@@ -285,6 +292,61 @@ a:hover {
 }
 #collection .price {
 	color:#666;
+}
+
+.template--product #content {
+	overflow:auto;
+}
+#product-menu {
+	width:20%;
+}
+#back-button,
+#product {
+	width:76.8%;
+}
+#product > .image {
+	width:41.53%;
+	padding-top:1em;
+}
+#product > .info {
+	width:50%;
+}
+#product .title {
+	color:#808080;
+	text-transform:none;
+	font-size:1.25em;
+	letter-spacing:0;
+	margin-bottom:0;
+}
+#product .price {
+	margin-bottom:0;
+}
+#product > .info > header {
+	margin-bottom:3%;
+}
+#product .description,
+#product form {
+	font-size:0.8em;
+}
+#product label {
+	display:inline;
+	text-transform:uppercase;
+	margin-right:1em;
+	line-height:2;
+}
+#product label::after {
+	content:':';
+}
+#product input[type="number"] {
+	border-style:solid;
+	border-width:1px;
+	height:auto;
+	line-height:1;
+	width:3em;
+}
+#product input,
+#product select {
+	margin-bottom:5%;
 }
 
 
@@ -698,7 +760,9 @@ footer .tweet_text a:hover { color: {{ settings.body_font_color }} !important; o
 #product .thumbs .image { margin-bottom: 15px; }
 #product .thumbs .image:nth-child(3n+4) { clear: left; }
 #product h3.collection-title { font-size: 20px; padding-top: 30px; padding-bottom: 20px; border-top: 1px solid {{ settings.border_color }}; }
+/*
 .product-options { padding: 15px 0 20px; margin-bottom: 15px; border-top: 1px solid {{ settings.border_color }}; border-bottom: 1px solid {{ settings.border_color }}; }
+*/
 .product-options.no-options { padding-top: 5px; border-top: none; }
 .product-options label { display: block; margin-bottom: 3px; }
 .product-options select { margin-bottom: 20px; }
