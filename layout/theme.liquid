@@ -79,7 +79,7 @@
         </section>
       </div>
       <div class="inside-margins clearfix">
-        <nav id="main-menu" class="main">{% include 'dropdown' %}</nav>
+        <nav id="main-menu" class="main double-bars--bottom">{% include 'dropdown' %}</nav>
       </div>
     </header>
 		<main id="content" class="inside-margins">
@@ -101,7 +101,7 @@
 		</main>
 		<footer id="main-footer">
 			<div class="inside-margins">
-				<nav id="footer-menu" class="uppercase">
+				<nav id="footer-menu" class="uppercase double-bars--top double-bars--bottom">
 				  <ul class="unstyled">
 					{% for link in linklists.footer.links %}
 					  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
@@ -115,39 +115,7 @@
 					</div>
 					<div id="footer-newsletter" class="column">
 						<h2 id="heading-newsletter-sign-up">Newsletter Sign Up</h2>
-						<form action="/press" accept-charset="UTF-8" method="post" id="mailchimp_subscribe_anon_form_79932de52b" _lpchecked="1">
-						<div>
-							<div class="form-item" id="edit-mailchimp-lists-79932de52b-EMAIL-wrapper">
-								<label for="edit-mailchimp-lists-79932de52b-EMAIL">Email Address: <span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" maxlength="128" name="mailchimp_lists[79932de52b][EMAIL]" id="edit-mailchimp-lists-79932de52b-EMAIL" size="25" value="" class="form-text required" placeholder="EMAIL ADDRESS">
-							</div>
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE3]" id="edit-mailchimp-lists-79932de52b-MMERGE3" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE4]" id="edit-mailchimp-lists-79932de52b-MMERGE4" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE5]" id="edit-mailchimp-lists-79932de52b-MMERGE5" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE6]" id="edit-mailchimp-lists-79932de52b-MMERGE6" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE7]" id="edit-mailchimp-lists-79932de52b-MMERGE7" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE8]" id="edit-mailchimp-lists-79932de52b-MMERGE8" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE9]" id="edit-mailchimp-lists-79932de52b-MMERGE9" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE10]" id="edit-mailchimp-lists-79932de52b-MMERGE10" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE11]" id="edit-mailchimp-lists-79932de52b-MMERGE11" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE12]" id="edit-mailchimp-lists-79932de52b-MMERGE12" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE13]" id="edit-mailchimp-lists-79932de52b-MMERGE13" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE14]" id="edit-mailchimp-lists-79932de52b-MMERGE14" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE15]" id="edit-mailchimp-lists-79932de52b-MMERGE15" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE16]" id="edit-mailchimp-lists-79932de52b-MMERGE16" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE17]" id="edit-mailchimp-lists-79932de52b-MMERGE17" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE18]" id="edit-mailchimp-lists-79932de52b-MMERGE18" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE19]" id="edit-mailchimp-lists-79932de52b-MMERGE19" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE20]" id="edit-mailchimp-lists-79932de52b-MMERGE20" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE21]" id="edit-mailchimp-lists-79932de52b-MMERGE21" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE22]" id="edit-mailchimp-lists-79932de52b-MMERGE22" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE23]" id="edit-mailchimp-lists-79932de52b-MMERGE23" value="">
-							<input type="hidden" name="mailchimp_lists[79932de52b][MMERGE24]" id="edit-mailchimp-lists-79932de52b-MMERGE24" value="">
-							<input type="hidden" name="form_build_id" id="form-xo_Q8ynVfYNQavPoybbcmgtfB101WQYeAq3oMnSw3wM" value="form-xo_Q8ynVfYNQavPoybbcmgtfB101WQYeAq3oMnSw3wM">
-							<input type="hidden" name="form_id" id="edit-mailchimp-subscribe-anon-form-79932de52b" value="mailchimp_subscribe_anon_form_79932de52b">
-							<input type="image" src="{{ 'submit-button.png' | asset_url }}" name="op" id="edit-submit-1" alt="Submit" class="form-submit">
-						</div>
-						</form>
+						{% include 'newsletter-form' %}
 					</div>
 					{% if settings.footer_display_social %}
 					<!-- Begin social -->
@@ -168,7 +136,7 @@
 					<!-- End social -->
 					{% endif %}
 				</section>
-				<nav id="bottom-links">
+				<nav id="bottom-links" class="double-bars--top">
 					<ul class="menu">
 						<li><span>Copyright &copy; 2015 Heroine</li>
 						{% for link in linklists.bottom.links %}

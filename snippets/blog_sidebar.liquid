@@ -1,28 +1,49 @@
-<div class="span3 sidebar">
-
-  <h3>{{ 'blogs.sidebar.recent_articles' | t }}</h3>
-  {% for article in blogs[blog.handle].articles limit:10 %}
-  <div class="article">
-    <p><a href="{{ article.url }}">{{ article.title }}</a> <em>{% assign published_at = article.published_at | date: format: 'short' %}{{ 'blogs.article.posted_on_date' | t: author: article.author, date: published_at }}</em></p>
-  </div>
-  {% endfor %}
-
+<aside id="blog-sidebar" class="fr">
+	<section class="about">
+		<h2><img src="{{ 'blog-sign.png' | asset_url }}" alt="Blog"></h2>
+		<p><strong>heroine</strong> (her·o·ine) noun<br>
+		1. a woman of distinguished courage or ability, admired for her brave deeds and noble qualities.</p>
+		<p>2. boutique for ladies, moms and babies.</p>
+		<p>Find luxurious modern and vintage-inspired attire for ladies and moms in our Victorian shoppe as well as organic and locally-designed clothing and gifts for mini heroes &amp; heroines.</p>
+		<p>Heroine supports charities benefiting families, women and children in need.</p>
+	</section>
   {% if blog.all_tags.size > 0 %}
-  <div class="clearfix">
-
-    <h3>{{ 'blogs.sidebar.tags' | t }}</h3>
-    <ul class="tags">
-      <li{% unless current_tags %} class="active"{% endunless %}><a href="{{ shop.url}}/blogs/{{ blog.handle }}">{{ 'blogs.sidebar.all' | t }}</a></li>
-      {% for tag in blog.all_tags %}
-      {% if current_tags contains tag %}
-      <li class="active">{{ tag | link_to_remove_tag: tag }}</li>
-      {% else %}
+	<section class="tags double-bars--top">
+		<h2>Explore</h2>
+    <ul>
+			{% if current_tags.size > 0 %}
+      {% for tag in current_tags limit:5 %}
       <li>{{ tag | link_to_tag: tag }}</li>
-      {% endif %}
       {% endfor %}
+      {% else %}
+      {% for tag in blog.all_tags limit:5 %}
+      <li>{{ tag | link_to_tag: tag }}</li>
+      {% endfor %}
+      {% endif %}
     </ul>
-
-  </div>
-  {% endif %}
-
-</div>
+	</section>
+	{% endif %}
+	<section class="search">
+		<form class="search" action="/search">
+			<input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />
+			<input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
+		</form>
+	</section>
+	<section class="social double-bars--all">
+		<h2>{{ 'layout.footer.follow_us' | t }}</h2>
+		<ul class="social-media-buttons">
+			{% if settings.facebook_link != blank %}<li><a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook">Facebook</a></li>{% endif %}
+			{% if settings.twitter_link != blank %}<li><a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter">Twitter</a></li>{% endif %}
+			{% if settings.pinterest_link != blank %}<li><a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest">Pinterest</a></li>{% endif %}
+			{% if settings.instagram_link != blank %}<li><a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram">Instagram</a></li>{% endif %}
+		</ul>
+	</section>
+	<section class="signup dotted-borders">
+		<h2>Newsletter Sign-Up</h2>
+		{% include 'newsletter-form' %}
+	</section>
+	<section class="location double-bars--all">
+		<h2>Store Location</h2>
+		<p>4100 24th Street<br>San Francisco, CA 94114<br><a href="tel:415-642-4843">(415) 642-4843</a> &nbsp;<a class="uppercase" href="http://goo.gl/maps/IAg47" target="_blank">Map</a></p>
+	</section>
+</aside>

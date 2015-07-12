@@ -54,18 +54,39 @@ input,
 	margin-right:auto;
 }
 
-#footer-newsletter .form-text,
+.newsletter-inputs .form-text,
 .search {
 	border:1px solid #d5dce2;
 }
-#footer-newsletter .form-text,
+.newsletter-inputs .form-text,
 .search > input[type="text"] {
 	height:26px;
 	font:12px/28px "courier new",sans-serif;
 	padding:0 0 0 8px;
 }
-#footer-newsletter .form-text {
+.newsletter-inputs .form-text {
 	line-height:30px;
+	max-width:calc(100% - 105px);
+}
+.newsletter-inputs .form-text input {
+	max-width:100%;
+	padding:0;
+	text-indent:8px;
+}
+.newsletter-inputs form {
+	margin-top:0.7em;
+}
+.newsletter-inputs label {
+	display:none;
+}
+.newsletter-inputs .form-item {
+	display:inline-block;
+}
+.newsletter-inputs input[type="image"] {
+	height:32px;
+	margin-top:-2px;
+	margin-left:0.5em;
+	padding:0;
 }
 
 .columns--3 {
@@ -86,6 +107,26 @@ input,
 .columns--3 > .column:last-child {
 	float:right;
 	text-align:right;
+}
+
+.double-bars--all {
+	border:double 4px #E4E1DC;
+}
+.double-bars--top {
+	border-top:double 4px #E4E1DC;
+}
+.double-bars--bottom {
+	border-bottom:double 4px #E4E1DC;
+}
+.dotted-borders {
+	border-image:url({{ 'dotted-border.png' | asset_url }}) 5 5 5 5 round round;
+}
+
+.social-media-buttons {
+	overflow:hidden;
+}
+.social-media-buttons > li {
+	float:left;
 }
 
 #main-header {
@@ -135,7 +176,6 @@ input,
 #main-menu {
 	margin-top:4.5%;
 	padding-bottom:1%;
-	border-bottom:double 4px #E4E1DC;
 	margin-bottom:1.5%;
 }
 .template--index #main-menu {
@@ -165,8 +205,6 @@ input,
 }
 
 #footer-menu {
-	border-top:double 4px #E4E1DC;
-	border-bottom:double 4px #E4E1DC;
 	padding:1.2em 0;
 	margin-bottom:3%;
 }
@@ -206,28 +244,12 @@ input,
 #footer-newsletter {
 	max-width:46%;
 }
-#footer-newsletter form {
-	margin-top:0.7em;
-}
-#footer-newsletter label {
-	display:none;
-}
-#footer-newsletter .form-item {
-	display:inline-block;
-}
-#footer-newsletter input[type="image"] {
-	height:32px;
-	margin-top:-2px;
-	margin-left:0.5em;
-	padding:0;
-}
 #footer-social {
 	max-width:25%;
 	min-width:16%;
 }
 #footer-social ul {
 	list-style-type:none;
-	overflow:hidden;
 	margin-top:0.5em;
 }
 #footer-social li {
@@ -235,7 +257,6 @@ input,
 }
 #bottom-links {
 	font-family:"courier new",sans-serif;
-	border-top:double 4px #E4E1DC;
 	text-transform:uppercase;
 	font-size:0.7em;
 	padding-top:1.5%;
@@ -311,6 +332,7 @@ input,
 #product > .info {
 	width:50%;
 }
+#blog article h1,
 #product .title {
 	color:#808080;
 	text-transform:none;
@@ -349,6 +371,83 @@ input,
 	margin-bottom:5%;
 }
 
+#blog > .articles,
+#page {
+	margin-top:4.5%;
+}
+
+#blog {
+	overflow:auto;
+}
+#blog > h1 {
+	display:none;
+}
+#blog .date {
+	color:#B79F63;
+	margin-bottom:0.5%;
+	font-size:0.8em;
+}
+#blog article h1 {
+	color:#656263;
+	font-family:inherit;
+}
+#blog > .articles {
+	width:64.13%;
+}
+#blog > aside {
+	width:30.25%;
+}
+#blog-sidebar {
+	text-align:center;
+}
+#blog-sidebar > section {
+	margin-bottom:11%;
+}
+#blog-sidebar h2 {
+	text-transform:uppercase;
+	color:#C9C3BA;
+	letter-spacing:2px;
+	font-size:1.1em;
+	margin-top:5%;
+	margin-bottom:0;
+}
+#blog-sidebar ul {
+	list-style-type:none;
+	text-transform:uppercase;
+	margin:0;
+}
+#blog-sidebar li {
+	line-height:2;
+}
+#blog-sidebar > .about {
+	font-size:0.8em;
+	margin-bottom:25%;
+}
+#blog-sidebar > .about > h2 {
+	margin-top:0;
+	margin-bottom:10%;
+}
+#blog-sidebar > .about > p {
+	text-align:left;
+	line-height:1.8;
+}
+#blog-sidebar .search_box {
+	text-align:left;
+	width:80%;
+}
+#blog-sidebar .search_box {
+	width:calc(100% - 33px);
+}
+#blog-sidebar .social-media-buttons {
+	display:inline-block;
+	margin-top:3%;
+}
+#blog-sidebar .newsletter-inputs {
+	margin-bottom:5%;
+}
+#blog-sidebar .newsletter-inputs .form-text {
+	width:51%;
+}
 
 /*********** End Heroine ***************/
 /*
@@ -498,7 +597,7 @@ em { font-style: italic; }
 .icon-social { filter: alpha(opacity=50); -khtml-opacity: 0.5; -moz-opacity: 0.5; opacity: 0.5; }
 .icon-social:hover { filter: alpha(opacity=100); -khtml-opacity: 1; -moz-opacity: 1; opacity: 1; }
 .icon-social.twitter { background-position: 0 0; }
-.icon-social.facebook { background-position: -50px 0; }
+.icon-social.facebook { background-position: -49px 0; width:33px; }
 .icon-social.youtube { background-position: -100px 0; }
 .icon-social.atom { background-position: -150px 0; }
 .icon-social.instagram { background-position: -200px 0; }
@@ -516,6 +615,7 @@ em { font-style: italic; }
 .icon-collections { background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4wLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLVNWRy0yMDAxMDkwNC9EVEQvc3ZnMTAuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4wIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Y2lyY2xlLCBlbGxpcHNlLCBsaW5lLCBwYXRoLCBwb2x5Z29uLCBwb2x5bGluZSwgcmVjdCwgdGV4dCB7IGZpbGw6ICM5OGE3YjUgIWltcG9ydGFudDsgfTwvc3R5bGU+DQo8cGF0aCBmaWxsPSIjNTI2MDY2IiBkPSJNNy41LDEuNUwwLDMuNWgwdjguOWw3LDIuMVY1LjdMMiw0LjVsNS41LTEuNmw2LjMsMS42bDAuMSwwTDgsNS43djguOGw4LTIuMVYzLjlMNy41LDEuNXogTTE0LDguMWwtNCwwLjgNCglWNy4zbDQtMC44VjguMXoiLz4NCjwvc3ZnPg0K"); }
 
 /* 1.8 - Tags */
+/*
 .tags {	margin: 0 0 0 12px; padding: 0; right: 24px; bottom: -12px; list-style: none; }
 .tags li { margin-bottom: 5px !important; }
 .tags li, .tags a {	float: left; height: 24px; line-height: 24px; position: relative; font-size: 11px;	}
@@ -524,6 +624,7 @@ em { font-style: italic; }
 .tags a:after {	content:"";	position: absolute; top: 10px; left: 0; float:left; width: 4px;	height: 4px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px;	background: #fff; }
 .tags a:hover, .tags li.active a { background: #CCCCCC; color: #333333; }
 .tags a:hover:before, .tags li.active a:before { border-color: transparent #CCCCCC transparent transparent;}
+*/
 
 /* =================== */
 /*      SECTION 2      */
@@ -754,8 +855,8 @@ footer .tweet_text a:hover { color: {{ settings.body_font_color }} !important; o
 /*
 .details .price { color: {{ settings.body_font_color }}; opacity: 0.7; }
 .details .price em { font-size: 12px; }
-*/
 #product .featured { margin-bottom: 15px; }
+*/
 #product .description { margin-bottom: 15px; }
 #product .thumbs .image { margin-bottom: 15px; }
 #product .thumbs .image:nth-child(3n+4) { clear: left; }
