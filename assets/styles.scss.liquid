@@ -31,6 +31,9 @@ h1 {
 	text-transform:uppercase;
 	letter-spacing:2px;
 }
+a:hover {
+	color:#68C8C6;
+}
 #collection > h1 {
 	margin-bottom:0;
 }
@@ -253,6 +256,9 @@ h1 {
 	width:76.8%;
 	margin-bottom:1%;
 }
+#collection > .products a {
+	display:block;
+}
 #collection .product {
 	width:30.5%;
 	margin:0 1.4% 3%;
@@ -262,7 +268,7 @@ h1 {
 	background-size:100% auto;
 	height:0;
 	padding-bottom:150%;
-	margin-bottom:6%;
+	margin-bottom:2%;
 }
 #collection .image {
 	background-size:contain;
@@ -403,8 +409,6 @@ p { margin: 0 0 20px 0; line-height: 23px }
 
 /* 1.5 - Links and Buttons */
 a { color:{{ settings.link_color }}; text-decoration: none; }
-a { transition:opacity 0.3s; }
-a:hover { color:{{ settings.link_color }}; opacity: 0.7; -webkit-backface-visibility:hidden; }
 a.btn, input.btn { font-family: {{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; display:inline-block; height:36px; line-height:36px; border:none; margin:0; padding:0 20px; color: {{ settings.button_text_color }};  font-weight: 700; font-size:13px; text-transform:none; background:{{ settings.link_color }}; width:auto; }
 .btn.secondary { background: #eee; color: #555; }
 a.btn:hover, input.btn:hover { background-color:{{ settings.link_color }}; color:#fff; opacity:0.8; -webkit-backface-visibility:hidden; }
@@ -673,8 +677,8 @@ footer .tweet_text a:hover { color: {{ settings.body_font_color }} !important; o
 .product img, .product .image a { display: block; margin: 0 auto; }
 .product a { text-decoration: none; }
 .product .details { text-align: center; }
-.product .details a { display: block; padding: 5px 0; }
 /*
+.product .details a { display: block; padding: 5px 0; }
 .product .title, .product .vendor { display: block; margin: 0; line-height: 22px; display: block; color: {{ settings.header_color }}; }
 .product .title { font-weight: bold; font-size: 15px; }
 */

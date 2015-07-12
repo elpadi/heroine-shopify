@@ -14,11 +14,11 @@
     <span class="circle sale">{{ 'products.product.sale' | t }}</span>
   {% endif %}
 
-  <div class="image" style="background-image:url({% if product.images.size >= 1%}{{ product.featured_image | product_img_url: 'large' }}{% else %}{{ 'No_Image_2.png' | asset_url }}{% endif %});">
-    <a href="{{ url }}">          
+	<a href="{{ url }}" class="image-link">          
+		<div class="image" style="background-image:url({% if product.images.size >= 1%}{{ product.featured_image | product_img_url: 'large' }}{% else %}{{ 'No_Image_2.png' | asset_url }}{% endif %});">
       <img src="{% if product.images.size >= 1%}{{ product.featured_image | product_img_url: 'large' }}{% else %}{{ 'No_Image_2.png' | asset_url }}{% endif %}" alt="{{ product.title | escape  }}" />
-    </a>
-  </div>
+		</div>
+	</a>
 
   <div class="details font--bg-reg">
     <a href="{{ url }}" class="clearfix">
