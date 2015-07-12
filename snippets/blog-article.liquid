@@ -1,0 +1,7 @@
+<article class="article clearfix">
+	<header class="font--bg-reg">
+		<p class="date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+		<h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
+	</header>
+	{% if template == 'article' %}{{ article.content }}{% else %}{{ article.excerpt_or_content }}{% endif %}
+</article>

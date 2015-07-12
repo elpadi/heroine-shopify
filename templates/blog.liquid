@@ -4,13 +4,7 @@
   <div class="articles fl">
     {% paginate blog.articles by 10 %}
 		{% for article in blog.articles %}
-			<article class="article clearfix">
-				<header class="font--bg-reg">
-					<p class="date">{{ article.published_at | date: '%B %d, %Y' }}</p>
-					<h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
-				</header>
-				{{ article.excerpt_or_content }}
-      </article>
+			{% include 'blog-article' %}
       {% unless forloop.last %}
       <hr class="divider" />
       {% endunless %}
