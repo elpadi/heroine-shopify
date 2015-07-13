@@ -318,6 +318,47 @@ body {
 	color:#666;
 }
 
+#collection-menu {
+	margin-top:10%;
+}
+#collection-menu ul {
+	text-align:left;
+	list-style-type:none;
+	margin:0;
+}
+#collection-menu li {
+	display:block;
+	margin:0;
+}
+#collection-menu button {
+	background-color:transparent;
+	border-style:none;
+	padding:0;
+	-webkit-appearance:none;
+}
+#collection-menu a,
+#collection-menu > nav > ul > li > button {
+	text-transform:uppercase;
+}
+#collection-menu > nav > ul > li > ul > li > button {
+	text-transform:lowercase;
+}
+#collection-menu > nav > ul > li,
+#collection-menu > nav > ul > li > button,
+#collection-menu > nav > ul > li > ul > li {
+	margin-bottom:10%;
+}
+#collection-menu > nav > ul > li > ul,
+#collection-menu > nav > ul > li > ul > li > ul {
+	padding-left:20%;
+}
+#collection-menu a {
+	padding:0;
+	line-height:1.2;
+	font-size:1em;
+	height:auto;
+}
+
 .template--product #content {
 	overflow:auto;
 }
@@ -786,7 +827,7 @@ nav > ul > li.dropdown > a { margin-right: 0; }
 nav > ul > li.dropdown > a { margin-right: 0; }
 {% endif %}
 nav > ul { text-align: center; }
-nav > ul > li { float: none !important; display:inline-block !important; }
+nav > ul.horizontal > li { float: none; display:inline-block; }
 nav > ul > li.dropdown > .dropdown { text-align: left; }
 nav > ul > li.dropdown > .dropdown > li { display: block; }
 nav.mobile { display: none; border: none; }

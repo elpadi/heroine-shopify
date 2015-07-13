@@ -1,0 +1,26 @@
+{% if 'ladies moms babies' contains collection.handle %}
+{% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,toys,apparel," | append: collection.handle | split: ',' %}
+{% assign current_level = -1 %}
+<aside id="collection-menu" class="fl">
+	<nav>
+		{% for submenu in submenus %}
+			{% assign ll-handle = collection.handle | append: '-' | append: submenu %}
+			{% assign parts = submenu | split: '-' %}
+			{% if submenu == collection.handle %}{% assign level = -1 %}{% else %}{% assign level = parts | size | minus: 1 %}{% endif %}
+			{% assign prev_level = level | minus: 1 %}
+			{% unless linklists[ll-handle].empty? %}
+				{% if current_level == -1 and submenu != collection.handle %}<ul>{% endif %}
+				{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul>{% endif %}
+				{% if current_level < prev_level %}<li><button>{{ parts[prev_level] | capitalize }}</button><ul>{% endif %}
+				{% if current_level < level %}<li><button>{{ parts[level] | capitalize }}</button><ul>{% endif %}
+				{% if current_level > level %}</li>{% endif %}
+				{% for link in linklists[ll-handle].links %}
+				<li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+				{% endfor %}
+				</ul>
+				{% assign current_level = level %}
+			{% endunless %}
+		{% endfor %}
+	</nav>
+</aside>
+{% endif %}

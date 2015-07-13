@@ -1,15 +1,16 @@
 <div id="collection">
 	<h1 class="collection-title">{{ collection.title }}</h1>
-  {% paginate collection.products by settings.pagination_limit %}
-  {% if collection.products.size == 0 %}
+	{% include 'collection-menu' %}
+	{% paginate collection.products by settings.pagination_limit %}
+	{% if collection.products.size == 0 %}
 		<p><br>Sorry, there are no products to show in <strong>{{ collection.title }}</strong>.</p>
 	{% else %}
-  <div class="row products">
-    {% for product in collection.products %}
-      {% include 'product-loop' with collection.handle %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% include 'pagination' %}
-  {% endpaginate %}
+		<div class="row products">
+		{% for product in collection.products %}
+			{% include 'product-loop' with collection.handle %}
+	{% endfor %}
+	</div>
+	{% endif %}
+	{% include 'pagination' %}
+	{% endpaginate %}
 </div>

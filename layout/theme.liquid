@@ -102,7 +102,7 @@
 		<footer id="main-footer">
 			<div class="inside-margins">
 				<nav id="footer-menu" class="uppercase double-bars--top double-bars--bottom">
-				  <ul class="unstyled">
+				  <ul class="unstyled horizontal">
 					{% for link in linklists.footer.links %}
 					  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
 					{% endfor %}
@@ -137,7 +137,7 @@
 					{% endif %}
 				</section>
 				<nav id="bottom-links" class="double-bars--top">
-					<ul class="menu">
+					<ul class="menu horizontal">
 						<li><span>Copyright &copy; 2015 Heroine</li>
 						{% for link in linklists.bottom.links %}
 						  <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
