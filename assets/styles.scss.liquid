@@ -34,15 +34,14 @@ h1 {
 input {
 	color:#656263;
 }
+#collection-menu li.selected > button,
 a:hover {
 	color:#68C8C6;
 }
-#collection > h1 {
-	margin-bottom:0;
-}
 
 input,
-.font--bg-reg {
+.font--bg-reg,
+.font--bg-reg button {
 	font-family:brandon_grotesque_regularRg,sans-serif;
 }
 .row, .clearfix {
@@ -186,7 +185,7 @@ body {
 	margin-bottom:0;
 }
 .template--collection #main-menu {
-	margin-bottom:4.6%;
+	margin-bottom:2.75%;
 }
 #main-menu a {
 	font:1.05em brandon_grotesque_regularRg,sans-serif;
@@ -282,10 +281,26 @@ body {
 	color:inherit;
 }
 
-#collection > .products {
-	float:right;
-	width:76.8%;
+#collection {
+	overflow:auto;
+	font-size:0.9em;
+}
+#collection > aside {
+	width:23.21%;
+}
+#collection > aside > .sale-button {
+	display:block;
+	clear:both;
+}
+#collection h1 {
+	margin-top:8%;
+}
+#collection-products {
+	width:75%;
 	margin-bottom:1%;
+}
+#collection-products .circle.sale {
+	display:none;
 }
 #collection > .products a {
 	display:block;
@@ -304,7 +319,7 @@ body {
 #collection .image {
 	background-size:contain;
 }
-#collection img {
+#collection-products img {
 	display:none;
 }
 #collection .title {
@@ -319,7 +334,12 @@ body {
 }
 
 #collection-menu {
-	margin-top:10%;
+	font-size:0.9em;
+	margin-bottom:23%;
+}
+#collection-menu ul,
+#collection-menu li {
+	display:none;
 }
 #collection-menu ul {
 	text-align:left;
@@ -330,7 +350,12 @@ body {
 	display:block;
 	margin:0;
 }
+#collection-menu button,
+#collection-menu a {
+	letter-spacing:1px;
+}
 #collection-menu button {
+	color:{{ settings.link_color }};
 	background-color:transparent;
 	border-style:none;
 	padding:0;
@@ -340,23 +365,30 @@ body {
 #collection-menu > nav > ul > li > button {
 	text-transform:uppercase;
 }
-#collection-menu > nav > ul > li > ul > li > button {
+#collection-menu > nav > ul > li > ul > li > button,
+#collection-menu > nav > ul > li > ul > li > a {
 	text-transform:lowercase;
+	font-size:1.25em;
 }
 #collection-menu > nav > ul > li,
 #collection-menu > nav > ul > li > button,
 #collection-menu > nav > ul > li > ul > li {
-	margin-bottom:10%;
+	margin-bottom:5%;
 }
-#collection-menu > nav > ul > li > ul,
+#collection-menu > nav > ul > li > ul {
+	padding-left:8%;
+}
 #collection-menu > nav > ul > li > ul > li > ul {
-	padding-left:20%;
+	padding-left:11%;
 }
 #collection-menu a {
 	padding:0;
 	line-height:1.2;
 	font-size:1em;
 	height:auto;
+}
+#collection-menu a.selected {
+	color:#F58878;
 }
 
 .template--product #content {

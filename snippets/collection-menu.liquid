@@ -1,18 +1,18 @@
-{% if 'ladies moms babies' contains collection.handle %}
+{% if 'ladies moms babies apothecary' contains collection.handle %}
 {% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,toys,apparel," | append: collection.handle | split: ',' %}
 {% assign current_level = -1 %}
-<aside id="collection-menu" class="fl">
-	<nav>
+<div id="collection-menu" class="fl" data-current-section="{{ collection.handle }}{% if current_tags %}-{{ current_tags | join '-' }}{% endif %}">
+	<nav class="font--bg-reg">
 		{% for submenu in submenus %}
 			{% assign ll-handle = collection.handle | append: '-' | append: submenu %}
 			{% assign parts = submenu | split: '-' %}
 			{% if submenu == collection.handle %}{% assign level = -1 %}{% else %}{% assign level = parts | size | minus: 1 %}{% endif %}
 			{% assign prev_level = level | minus: 1 %}
 			{% unless linklists[ll-handle].empty? %}
-				{% if current_level == -1 and submenu != collection.handle %}<ul>{% endif %}
-				{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul>{% endif %}
-				{% if current_level < prev_level %}<li><button>{{ parts[prev_level] | capitalize }}</button><ul>{% endif %}
-				{% if current_level < level %}<li><button>{{ parts[level] | capitalize }}</button><ul>{% endif %}
+				{% if current_level == -1 and submenu != collection.handle %}<ul data-level="{{ collection.handle }}">{% endif %}
+				{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul data-level="{{ parts[level] }}">{% endif %}
+				{% if current_level < prev_level %}<li><button>{{ parts[prev_level] | capitalize }}</button><ul data-handle="{{ parts[prev_level] }}">{% endif %}
+				{% if current_level < level %}<li><button>{{ parts[level] | capitalize }}</button><ul data-handle="{{ parts[level] }}">{% endif %}
 				{% if current_level > level %}</li>{% endif %}
 				{% for link in linklists[ll-handle].links %}
 				<li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
@@ -22,5 +22,19 @@
 			{% endunless %}
 		{% endfor %}
 	</nav>
-</aside>
+</div>
+{% endif %}
+{% if current_tags %}
+	<script>
+		jQuery(document).ready(function() {
+			var tag = '{{ current_tags | first }}'.toLowerCase();
+			jQuery('#collection-menu').find('a').filter(function() {
+				return this.textContent.toLowerCase().replace(' ', '-') === tag;
+			}).addClass('selected').parents('ul,li').css('display','block').addClass('selected');
+			jQuery('#collection-menu').on('click', 'button', function(e) {
+				var link = jQuery(this).siblings('ul').find('a').first();
+				if (link.length > 0) location = link.attr('href');
+			});
+		});
+	</script>
 {% endif %}

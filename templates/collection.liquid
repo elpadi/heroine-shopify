@@ -1,16 +1,21 @@
 <div id="collection">
-	<h1 class="collection-title">{{ collection.title }}</h1>
-	{% include 'collection-menu' %}
-	{% paginate collection.products by settings.pagination_limit %}
-	{% if collection.products.size == 0 %}
-		<p><br>Sorry, there are no products to show in <strong>{{ collection.title }}</strong>.</p>
-	{% else %}
-		<div class="row products">
-		{% for product in collection.products %}
-			{% include 'product-loop' with collection.handle %}
-	{% endfor %}
-	</div>
-	{% endif %}
-	{% include 'pagination' %}
-	{% endpaginate %}
+	<aside id="title-and-menu" class="fl">
+		<h1 class="collection-title">{{ collection.title }}</h1>
+		{% include 'collection-menu' %}
+		{% if collection.handle != 'sale' %}<a class="sale-button" href="{{ collections.sale.url }}"><img src="{{ 'sale-sign-left.png' | asset_url }}" alt="On Sale"></a>{% endif %}
+	</aside>
+	<section id="collection-products" class="fr">
+		{% paginate collection.products by settings.pagination_limit %}
+		{% if collection.products.size == 0 %}
+			<p><br>Sorry, there are no products to show in <strong>{{ collection.title }}</strong>.</p>
+		{% else %}
+			<div class="row products fr">
+			{% for product in collection.products %}
+				{% include 'product-loop' with collection.handle %}
+			{% endfor %}
+			</div>
+		{% endif %}
+		{% include 'pagination' %}
+		{% endpaginate %}
+	</section>
 </div>
