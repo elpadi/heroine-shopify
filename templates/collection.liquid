@@ -9,11 +9,9 @@
 		{% if collection.products.size == 0 %}
 			<p><br>Sorry, there are no products to show in <strong>{{ collection.title }}</strong>.</p>
 		{% else %}
-			<div class="row products fr">
 			{% for product in collection.products %}
 				{% include 'product-loop' with collection.handle %}
 			{% endfor %}
-			</div>
 		{% endif %}
 		{% include 'pagination' %}
 		{% endpaginate %}

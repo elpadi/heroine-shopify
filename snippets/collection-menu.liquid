@@ -9,11 +9,15 @@
 			{% if submenu == collection.handle %}{% assign level = -1 %}{% else %}{% assign level = parts | size | minus: 1 %}{% endif %}
 			{% assign prev_level = level | minus: 1 %}
 			{% unless linklists[ll-handle].empty? %}
-				{% if current_level == -1 and submenu != collection.handle %}<ul data-level="{{ collection.handle }}">{% endif %}
-				{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul data-level="{{ parts[level] }}">{% endif %}
-				{% if current_level < prev_level %}<li><button>{{ parts[prev_level] | capitalize }}</button><ul data-handle="{{ parts[prev_level] }}">{% endif %}
-				{% if current_level < level %}<li><button>{{ parts[level] | capitalize }}</button><ul data-handle="{{ parts[level] }}">{% endif %}
-				{% if current_level > level %}</li>{% endif %}
+				{% if current_level == -1 %}
+					{% if submenu != collection.handle or parts.size == 1 %}<ul data-level="{{ collection.handle }}">{% endif %}
+				{% endif %}
+				{% if parts.size > 1 %}
+					{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul data-level="{{ parts[level] }}">{% endif %}
+					{% if current_level < prev_level %}<li><button>{{ parts[prev_level] | capitalize }}</button><ul data-handle="{{ parts[prev_level] }}">{% endif %}
+					{% if current_level < level %}<li><button>{{ parts[level] | capitalize }}</button><ul data-handle="{{ parts[level] }}">{% endif %}
+					{% if current_level > level %}</li>{% endif %}
+				{% endif %}
 				{% for link in linklists[ll-handle].links %}
 				<li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
 				{% endfor %}
@@ -24,17 +28,17 @@
 	</nav>
 </div>
 {% endif %}
-{% if current_tags %}
-	<script>
-		jQuery(document).ready(function() {
-			var tag = '{{ current_tags | first }}'.toLowerCase();
-			jQuery('#collection-menu').find('a').filter(function() {
-				return this.textContent.toLowerCase().replace(' ', '-') === tag;
-			}).addClass('selected').parents('ul,li').css('display','block').addClass('selected');
-			jQuery('#collection-menu').on('click', 'button', function(e) {
-				var link = jQuery(this).siblings('ul').find('a').first();
-				if (link.length > 0) location = link.attr('href');
-			});
+<script>
+	jQuery(document).ready(function() {
+		jQuery('#collection-menu').on('click', 'button', function(e) {
+			var link = jQuery(this).siblings('ul').find('a').first();
+			if (link.length > 0) location = link.attr('href');
 		});
-	</script>
-{% endif %}
+		{% if current_tags %}
+		var tag = '{{ current_tags | first }}'.toLowerCase();
+		jQuery('#collection-menu').find('a').filter(function() {
+			return this.textContent.toLowerCase().replace(/ /g, '-') === tag;
+		}).addClass('selected').parents('ul,li').css('display','block').addClass('selected');
+		{% endif %}
+	});
+</script>
