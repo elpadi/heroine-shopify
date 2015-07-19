@@ -34,6 +34,13 @@ h1 {
 input {
 	color:#656263;
 }
+.back-button {
+	overflow:hidden;
+	text-indent:100%;
+	width:70px;
+	height:34px;
+	background:transparent url({{ 'back-button.png' | asset_url }}) top left no-repeat;
+}
 #collection-menu li.selected > button,
 a:hover {
 	color:#68C8C6;
@@ -301,23 +308,30 @@ body {
 	color:inherit;
 }
 
-#collection {
+#collection,
+.template--product #content {
 	overflow:auto;
+}
+#collection,
+#content > aside {
 	font-size:0.9em;
 }
-#collection > aside {
+#collection > aside,
+#content > aside {
 	width:23%;
 }
 #collection > aside > .sale-button {
 	display:block;
 	clear:both;
 }
-#collection h1 {
+#collection h1,
+#content > aside h1 {
 	font-size:1.4em;
 	margin-top:8%;
 	margin-bottom:8%;
 }
-#collection-main {
+#collection-main,
+#product-main {
 	width:75%;
 	margin-bottom:1%;
 }
@@ -432,12 +446,20 @@ body {
 .template--product #content {
 	overflow:auto;
 }
+#product-main {
+	position:relative;
+	padding-top:5%;
+}
+#product-back-button {
+	position:absolute;
+	top:0;
+	left:0;
+}
 #product-menu {
 	width:20%;
 }
-#back-button,
 #product {
-	width:76.8%;
+	overflow:auto;
 }
 #product > .image {
 	width:41.53%;

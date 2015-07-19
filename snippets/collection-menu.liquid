@@ -1,16 +1,16 @@
-{% if 'ladies moms babies apothecary' contains collection.handle %}
-{% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,toys,apparel," | append: collection.handle | split: ',' %}
+{% if 'ladies moms babies apothecary' contains collection_handle %}
+{% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,toys,apparel," | append: collection_handle | split: ',' %}
 {% assign current_level = -1 %}
-<div id="collection-menu" class="fl" data-current-section="{{ collection.handle }}{% if current_tags %}-{{ current_tags | join '-' }}{% endif %}">
+<div id="collection-menu" class="fl" data-current-section="{{ collection_handle }}{% if current_tags %}-{{ current_tags | join '-' }}{% endif %}">
 	<nav class="font--bg-reg">
 		{% for submenu in submenus %}
-			{% assign ll-handle = collection.handle | append: '-' | append: submenu %}
+			{% assign ll-handle = collection_handle | append: '-' | append: submenu %}
 			{% assign parts = submenu | split: '-' %}
-			{% if submenu == collection.handle %}{% assign level = -1 %}{% else %}{% assign level = parts | size | minus: 1 %}{% endif %}
+			{% if submenu == collection_handle %}{% assign level = -1 %}{% else %}{% assign level = parts | size | minus: 1 %}{% endif %}
 			{% assign prev_level = level | minus: 1 %}
 			{% unless linklists[ll-handle].empty? %}
 				{% if current_level == -1 %}
-					{% if submenu != collection.handle or parts.size == 1 %}<ul data-level="{{ collection.handle }}">{% endif %}
+					{% if submenu != collection_handle or parts.size == 1 %}<ul data-level="{{ collection_handle }}">{% endif %}
 				{% endif %}
 				{% if parts.size > 1 %}
 					{% if current_level == level %}</li><li><button>{{ parts[level] | capitalize }}</button><ul data-level="{{ parts[level] }}">{% endif %}
@@ -27,6 +27,10 @@
 		{% endfor %}
 	</nav>
 </div>
+{% if template == 'product' %}
+{% assign collection_tags = product.tags %}
+{% else %}
+{% assign collection_tags = current_tags %}
 {% endif %}
 <script>
 	jQuery(document).ready(function() {
@@ -34,8 +38,8 @@
 			var link = jQuery(this).siblings('ul').find('a').first();
 			if (link.length > 0) location = link.attr('href');
 		});
-		{% if current_tags %}
-		var tags_text = '{{ current_tags | join: ',' }}'.toLowerCase();
+		{% if collection_tags %}
+		var tags_text = '{{ collection_tags | join: ',' | replace: ' ', '-' | downcase }}';
 		var unscape = document.createElement('span');
 		unscape.innerHTML = tags_text;
 		var tags = unscape.textContent.split(',');
@@ -47,3 +51,4 @@
 		{% endif %}
 	});
 </script>
+{% endif %}

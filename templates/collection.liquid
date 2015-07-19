@@ -1,6 +1,7 @@
 <div id="collection">
 	<aside id="title-and-menu" class="fl">
 		<h1 class="collection-title">{{ collection.title }}</h1>
+		{% assign collection_handle = collection.handle %}
 		{% include 'collection-menu' %}
 		{% if collection.handle != 'sale' %}<a class="sale-button" href="{{ collections.sale.url }}"><img src="{{ 'sale-sign-left.png' | asset_url }}" alt="On Sale"></a>{% endif %}
 	</aside>

@@ -1,5 +1,16 @@
-{% if collection %}
-{% include 'collection-menu' %}
-<p id="back-button" class="fr"><a href="{{ collection.url }}" title="{{ collection.title | escape }}">Back</a></p>
-{% endif %}
-{% include 'product' %}
+{% assign main_collections = 'ladies moms babies apothecary new-arrivals dads books-art gift-certificates' %}
+{% for c in product.collections %}{% if main_collections contains c.handle %}
+{% assign collection_handle = c.handle %}
+{% assign collection_title = c.title %}
+{% endif %}{% endfor %}
+<aside id="title-and-menu" class="fl">
+	<h1 class="collection-title">{{ collection_title }}</h1>
+	{% include 'collection-menu' %}
+	<a class="sale-button" href="{{ collections.sale.url }}"><img src="{{ 'sale-sign-left.png' | asset_url }}" alt="On Sale"></a>
+</aside>
+<section id="product-main" class="fr">
+	{% if collection %}
+	<a id="product-back-button" class="back-button" href="{{ collection.url }}" title="{{ collection.title | escape }}">Back</a>
+	{% endif %}
+	{% include 'product' %}
+</section>
