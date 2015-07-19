@@ -65,10 +65,33 @@
   <div id="container">
     <header id="main-header">
       <div class="inside-margins clearfix">
-        <section class="fl">
-          <h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
+        <section class="header__logo fl">
+			<h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
+			<div class="header__mobile header__mobile-buttons">
+				<button class="burger icon" id="menu-toggler">Menu</button>
+				<span class="sep">&nbsp;</span>
+				{% if customer  %}
+				<a href="/account" class="ghost icon">Account</a>
+				<span class="sep">&nbsp;</span>
+				<a href="/wishlist">Wishlist</a>
+				{% else %}
+				<a href="/account/login" class="ghost icon">Log In</a>
+				<span class="sep">&nbsp;</span>
+				<a href="/account/register">Register</a>
+				{% endif %}
+				<span class="sep">&nbsp;</span>
+				<a href="/cart" class="bag icon">Shopping Cart</a>
+			</div>
         </section>
-        <section class="fr">
+		{% if settings.display_search %}
+        <section class="header__mobile header__mobile-search">
+			<form class="search" action="/search">
+				<input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />
+				<input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
+			</form>
+        </section>
+		{% endif %}
+        <section class="header__search-and-buttons fr">
           {% if settings.display_search %}
           <form class="search fr" action="/search">
             <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />

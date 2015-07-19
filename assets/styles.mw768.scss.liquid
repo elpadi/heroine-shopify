@@ -2,6 +2,56 @@ nav > ul > li > a {
 	padding-left:14px;
 	padding-right:14px;
 }
+
+.header__logo {
+	float:left;
+}
+.header__search-and-buttons {
+	display:block;
+}
+.header__mobile {
+	display:none;
+}
+#logo {
+	float:none;
+	width:auto;
+}
+#main-header .search {
+	margin-top:17px;
+	margin-bottom:39px;
+}
+
+#main-menu {
+	display:block;
+	margin-top:4.5%;
+	padding-bottom:1%;
+	margin-bottom:1.5%;
+}
+.template--index #main-menu {
+	border-style:none;
+	margin-bottom:0;
+}
+.template--collection #main-menu {
+	margin-bottom:2.75%;
+}
+#main-menu a {
+	font:1.05em brandon_grotesque_regularRg,sans-serif;
+	letter-spacing:0.05em;
+	height:auto;
+}
+#main-menu a.current {
+	position:relative;
+}
+#main-menu a.current::before {
+	content:'';
+	position:absolute;
+	top:-2em;
+	left:0;
+	width:100%;
+	height:27px;
+	background:transparent url({{ 'menu-arrow.png' | asset_url }}) center top no-repeat;
+}
+
 #collection > aside,
 #content > aside {
 	width:25%;
