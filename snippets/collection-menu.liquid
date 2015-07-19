@@ -35,10 +35,15 @@
 			if (link.length > 0) location = link.attr('href');
 		});
 		{% if current_tags %}
-		var tag = '{{ current_tags | first }}'.toLowerCase();
-		jQuery('#collection-menu').find('a').filter(function() {
-			return this.textContent.toLowerCase().replace(/ /g, '-') === tag;
-		}).addClass('selected').parents('ul,li').css('display','block').addClass('selected');
+		var tags_text = '{{ current_tags | join: ',' }}'.toLowerCase();
+		var unscape = document.createElement('span');
+		unscape.innerHTML = tags_text;
+		var tags = unscape.textContent.split(',');
+		for (var i in tags) {
+			jQuery('#collection-menu').find('a').filter(function() {
+				return this.textContent.toLowerCase().replace(/ /g, '-') === tags[i];
+			}).addClass('selected').parents('ul,li').css('display','block').addClass('selected');
+		}
 		{% endif %}
 	});
 </script>

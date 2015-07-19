@@ -192,6 +192,18 @@ body {
 	letter-spacing:0.05em;
 	height:auto;
 }
+#main-menu a.current {
+	position:relative;
+}
+#main-menu a.current::before {
+	content:'';
+	position:absolute;
+	top:-2em;
+	left:0;
+	width:100%;
+	height:27px;
+	background:transparent url({{ 'menu-arrow.png' | asset_url }}) center top no-repeat;
+}
 #content {
 	position:relative;
 	margin-bottom:5%;
@@ -286,7 +298,7 @@ body {
 	font-size:0.9em;
 }
 #collection > aside {
-	width:24%;
+	width:23%;
 }
 #collection > aside > .sale-button {
 	display:block;
@@ -336,10 +348,14 @@ body {
 #collection-menu {
 	font-size:0.9em;
 	margin-bottom:23%;
+	width:100%;
 }
 #collection-menu ul,
 #collection-menu li {
 	display:none;
+}
+#collection-menu > nav > ul {
+	display:block;
 }
 #collection-menu ul {
 	text-align:left;
