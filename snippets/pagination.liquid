@@ -1,5 +1,5 @@
 {% if paginate.pages > 1 %}
-{% unless template == 'customers/account' %}<div class="row">{% endunless %}
+{% unless template == 'customers/account' %}<footer id="pagination-area" class="font--georgia">{% endunless %}
   <div>
     <ul class="pagination clearfix">
     {% if paginate.previous %}
@@ -15,5 +15,5 @@
     {% endif %}
     </ul>
   </div>
-{% unless template == 'customers/account' %}</div>{% endunless %}
+{% unless template == 'customers/account' %}</footer>{% endunless %}
 {% endif %}

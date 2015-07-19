@@ -22,7 +22,7 @@
 			{% assign variant = product.selected_or_first_available_variant %}
 			<p class="price" id="price-preview">{{ variant.price | money }}{% if variant.price < variant.compare_at_price %} <del>{{ variant.compare_at_price | money }}</del>{% endif %}</p>
 		</header>
-		<section class="description">{{ product.description }}</section>
+		<section class="description font--georgia">{{ product.description }}</section>
 		<form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
 			
 			<!-- Begin product options -->

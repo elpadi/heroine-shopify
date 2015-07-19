@@ -44,6 +44,7 @@ input,
 .font--bg-reg button {
 	font-family:brandon_grotesque_regularRg,sans-serif;
 }
+#page,
 .font--georgia {
 	font-family:Georgia, Utopia, 'Times New Roman', Times, serif
 }
@@ -312,11 +313,16 @@ body {
 	clear:both;
 }
 #collection h1 {
+	font-size:1.4em;
 	margin-top:8%;
+	margin-bottom:8%;
 }
-#collection-products {
+#collection-main {
 	width:75%;
 	margin-bottom:1%;
+}
+#collection-products {
+	overflow:auto;
 }
 #collection-products .circle.sale {
 	display:none;
@@ -350,6 +356,9 @@ body {
 }
 #collection .price {
 	color:#666;
+}
+#pagination-area {
+	margin-top:5%;
 }
 
 #collection-menu {
@@ -413,7 +422,7 @@ body {
 	color:#F58878;
 }
 #collection-menu > nav > ul > li > a {
-	line-height:2;
+	line-height:1.8;
 }
 
 .template--product #content {
@@ -447,7 +456,9 @@ body {
 #product > .info > header {
 	margin-bottom:3%;
 }
-#product .description,
+#product .description {
+	font-size:0.9em;
+}
 #product form {
 	font-size:0.8em;
 }
@@ -572,6 +583,11 @@ body {
 	border-style:none;
 }
 
+#page .page-title {
+	font-size:1.1em;
+	margin-bottom:5%;
+}
+
 /*********** End Heroine ***************/
 /*
 /*  SECTION 1
@@ -684,7 +700,7 @@ h1,h2,h3,h4,h5,h6 { color:{{ settings.header_color }}; margin:0 0 13px 0; font-f
 h1,h2,h3,h4,h5,h6,.cart-summary, .toolbar { font-family: {{ settings.header_font | remove: 'Google+' | replace: '+', ' ' }}; }
 h2 { font-weight: 400; color: {{ settings.header_color }};  font-size: 28px; line-height: 32px; }
 h3 { font-weight: 400; color: {{ settings.header_color }};  font-size: 24px; line-height: 27px; }
-h4 { font-size: 13px; line-height: 18px; }
+h4 { font-size: 1em; line-height: 1.5; }
 h5 { font-size: 12px; line-height: 18px; }
 h6 { font-size: 10px; line-height: 18px; text-transform:uppercase; }
 h1 .note, h2 .note, h3 .note, h4 .note, h5 .note, h6 .note { margin-left: 8px; font-weight: 400; font-size: 12px;}
