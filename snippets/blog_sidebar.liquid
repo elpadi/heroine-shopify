@@ -15,6 +15,9 @@
       {% for tag in current_tags limit:5 %}
       <li>{{ tag | link_to_tag: tag }}</li>
       {% endfor %}
+			{% for tag in blog.all_tags limit:5 %}{% unless current_tags contains tag %}
+      <li>{{ tag | link_to_tag: tag }}</li>
+			{% endunless %}{% endfor %}
       {% else %}
       {% for tag in blog.all_tags limit:5 %}
       <li>{{ tag | link_to_tag: tag }}</li>
@@ -44,6 +47,6 @@
 	</section>
 	<section class="location double-bars--all">
 		<h2>Store Location</h2>
-		<p>4100 24th Street<br>San Francisco, CA 94114<br><a href="tel:415-642-4843">(415) 642-4843</a> &nbsp;<a class="uppercase" href="http://goo.gl/maps/IAg47" target="_blank">Map</a></p>
+		<p>4100 24th Street<br>San Francisco, CA 94114<br><a href="tel:415-642-4843">{415} 642-4843</a> &nbsp;<a class="uppercase underline red-link" href="http://goo.gl/maps/IAg47" target="_blank">Map</a></p>
 	</section>
 </aside>

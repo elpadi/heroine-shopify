@@ -1,0 +1,23 @@
+{% form "new_comment", article %}
+<h2 class="comment-title">{{ 'blogs.comments.form_title' | t }}</h2>
+
+{% if form.posted_successfully? %}
+{% if blog.moderated? %}
+<p class="subtext success">{{ 'blogs.comments.success_moderated' | t }}</p>
+{% else %}
+<p class="subtext success">{{ 'blogs.comments.success' | t }}</p>
+{% endif %}
+{% endif %}
+
+{% if form.errors %}
+<p class="subtext error">{{ 'blogs.comments.error' | t }}</p>
+{% endif %}
+
+<input type="text" id="comment_author" name="comment[author]" size="40" class="text" placeholder="{{ 'blogs.comments.name' | t }}"/>
+<input type="text" id="comment_email" name="comment[email]" size="40" class="text" placeholder="{{ 'blogs.comments.email' | t }}"/>
+<textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="text" placeholder="{{ 'blogs.comments.message' | t }}">{{form.body}}</textarea>
+<input type="submit" value="{{ 'blogs.comments.post' | t }}" class="fr btn" id="comment-submit" />
+{% endform %}
+{% if blog.moderated? %}
+<div class="notice">{{ 'blogs.comments.moderated' | t }}</div>
+{% endif %}

@@ -4,4 +4,33 @@
 		<h1><a href="{{ article.url }}">{{ article.title }}</a></h1>
 	</header>
 	{% if template == 'article' %}{{ article.content }}{% else %}{{ article.excerpt_or_content }}{% endif %}
+	{% if blog.comments_enabled? %}
+	<footer>
+		{% if template == 'blog' %}
+			{% if article.comments.size == 0 %}
+			<a class="comments-button red-link" href="{{ article.url }}#comments-form"><span>&nbsp;</span> {{ 'blogs.comments.form_title' | t }}</a>
+			{% else %}
+			<a class="comments-button red-link" href="{{ article.url }}#comments"><span>{{ article.comments.size }}</span> {{ article.comments.size | pluralize: 'comment', 'comments' }}</a>
+			{% endif %}
+		{% endif %}
+		{% if template == 'article' %}
+			{% if article.comments.size > 0 %}
+			<section id="comments">
+				<h2>Comments</h2>
+				{% for comment in article.comments %}
+				<article class="comment">
+					<header class="info">
+						<h3>{{ comment.author }} on <time datetime="{{ comment.created_at }}">{{ comment.created_at | date: '%B %d, %Y at %I:%M %p' }}</time>.</h3>
+					</header>
+					{{ comment.content }}
+				</article>
+				{% endfor %}
+			</section>
+			{% endif %}
+			<section id="comments-form">
+				{% include 'blog-comments-form' %}
+			</section>
+		{% endif %}
+	</footer>
+	{% endif %}
 </article>
