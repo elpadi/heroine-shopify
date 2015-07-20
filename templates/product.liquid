@@ -3,6 +3,7 @@
 {% assign collection_handle = c.handle %}
 {% assign collection_title = c.title %}
 {% endif %}{% endfor %}
+<h1 class="mobile-only collection-title">{{ collection_title }}</h1>
 <aside id="title-and-menu" class="fl">
 	<h1 class="collection-title">{{ collection_title }}</h1>
 	{% include 'collection-menu' %}
