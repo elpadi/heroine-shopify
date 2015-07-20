@@ -67,7 +67,7 @@
       <div class="inside-margins clearfix">
         <section class="header__logo fl">
 			<h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
-			<div class="header__mobile header__mobile-buttons">
+			<div class="mobile-only header__mobile-buttons">
 				<button class="burger icon" id="menu-toggler">Menu</button>
 				<span class="sep">&nbsp;</span>
 				{% if customer  %}
@@ -84,7 +84,7 @@
 			</div>
         </section>
 		{% if settings.display_search %}
-        <section class="header__mobile header__mobile-search">
+        <section class="mobile-only header__mobile-search">
 			<form class="search" action="/search">
 				<input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />
 				<input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
@@ -109,7 +109,7 @@
       </div>
     </header>
 		<main id="content" class="inside-margins">
-			<section class="header__mobile header__mobile-menu">
+			<section class="mobile-only header__mobile-menu">
 				<nav id="mobile-main-menu" class="">{% include 'dropdown' %}</nav>
 			</section>
 			{% if template == "list-collections" %}

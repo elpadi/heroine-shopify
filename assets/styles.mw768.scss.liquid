@@ -34,7 +34,7 @@ nav > ul > li > a {
 .header__search-and-buttons {
 	display:block;
 }
-.header__mobile {
+.mobile-only {
 	display:none;
 }
 #logo {
@@ -108,10 +108,84 @@ nav > ul > li > a {
 
 #collection > aside,
 #content > aside {
+	display:block;
 	width:25%;
+}
+#collection h1,
+#content > aside h1 {
+	font-size:1.4em;
+	margin-top:8%;
+	margin-bottom:8%;
+	padding:0;
 }
 #collection-main,
 #product-main {
 	width:73%;
+}
+#collection > aside > .sale-button {
+	display:block;
+	clear:both;
+}
+#collection .details {
+	font-size:1em;
+}
+#collection .title {
+	margin-bottom:-2px;
+}
+#collection-menu {
+	font-size:0.9em;
+	margin-bottom:23%;
+	width:100%;
+}
+#collection-menu ul,
+#collection-menu li {
+	display:none;
+}
+#collection-menu > nav > ul {
+	display:block;
+}
+#collection-menu ul {
+	text-align:left;
+	list-style-type:none;
+	margin:0;
+}
+#collection-menu li {
+	display:block;
+	margin:0;
+}
+#collection-menu button,
+#collection-menu a {
+	letter-spacing:1px;
+}
+#collection-menu button {
+	color:{{ settings.link_color }};
+}
+#collection-menu a,
+#collection-menu > nav > ul > li > button {
+	text-transform:uppercase;
+}
+#collection-menu > nav > ul > li > ul > li > button,
+#collection-menu > nav > ul > li > ul > li > a {
+	text-transform:lowercase;
+	font-size:1.25em;
+}
+#collection-menu > nav > ul > li,
+#collection-menu > nav > ul > li > ul > li {
+	margin-bottom:5%;
+}
+#collection-menu > nav > ul > li > ul {
+	padding-left:8%;
+}
+#collection-menu > nav > ul > li > ul > li > ul {
+	padding-left:11%;
+}
+#collection-menu a {
+	padding:0;
+	line-height:1.2;
+	font-size:1em;
+	height:auto;
+}
+#collection-menu > nav > ul > li > a {
+	line-height:1.8;
 }
 
