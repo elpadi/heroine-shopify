@@ -283,6 +283,7 @@ ul.expanded > li, ol.expanded > li { margin-bottom: 10px; }
 .logo a, .logo img { display:block; margin:0; }
 
 /* 3.3 - Navigation */
+/*
 nav { font-family:{{ settings.base_font | remove: 'Google+' | replace: '+', ' ' }}; }
 nav > ul > li { margin-bottom: 0; }
 nav > ul > li > a { text-decoration: none; color: {{ settings.nav_link_color }}; display: block; padding: 0 14px; font-size: 17px; line-height: 72px; height: 72px; font-weight: 400; -webkit-transform: rotateZ(0); transform: rotateZ(0); }
@@ -295,6 +296,7 @@ nav > ul > li.dropdown:hover > .dropdown { display: block; z-index: 999999; -web
 nav > ul > li.dropdown li { list-style: none; font-size: 13px; line-height: 30px; }
 nav > ul > li.dropdown li a { line-height: 30px; height: 30px; font-size: 15px; color: {{ settings.nav_link_color }}; }
 nav > ul > li.dropdown li a:hover { color: {{ settings.nav_link_color }}; opacity:0.7; filter: alpha(opacity = 70); }
+*/
 {% if settings.logo_alignment == "center" %}
 nav > ul > li.dropdown > .dropdown { margin-left: 0; }
 nav > ul > li.dropdown:hover > .dropdown { display: block; z-index: 999999; -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10); -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10); box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10); }

@@ -109,6 +109,9 @@
       </div>
     </header>
 		<main id="content" class="inside-margins">
+			<section class="header__mobile header__mobile-menu">
+				<nav id="mobile-main-menu" class="">{% include 'dropdown' %}</nav>
+			</section>
 			{% if template == "list-collections" %}
 			<div id="collection" class="row">
 				<div class="span12">
@@ -181,6 +184,7 @@
   {% endif %}
   {{ 'jquery.tweet.js' | asset_url | script_tag }}
   {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+  {{ 'main.js' | asset_url | script_tag }}
 
 </body>
 </html>
