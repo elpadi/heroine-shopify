@@ -1,7 +1,32 @@
+nav > ul.horizontal > li {
+	float: none;
+	display:inline-block;
+	margin-bottom:0;
+}
 nav > ul > li > a {
 	padding-left:14px;
 	padding-right:14px;
 }
+.columns--3 {
+	overflow:hidden;
+	text-align:center;
+}
+.columns--3 > .column {
+	max-width:33%;
+}
+.columns--3 > .column:first-child {
+	float:left;
+	text-align:left;
+}
+.columns--3 > .column:nth-child(2) {
+	display:inline-block;
+	margin:auto;
+}
+.columns--3 > .column:last-child {
+	float:right;
+	text-align:right;
+}
+
 
 .header__logo {
 	float:left;
@@ -50,6 +75,35 @@ nav > ul > li > a {
 	width:100%;
 	height:27px;
 	background:transparent url({{ 'menu-arrow.png' | asset_url }}) center top no-repeat;
+}
+
+#main-footer {
+	margin:0;
+	text-align:left;
+}
+.template--index #footer-menu {
+	margin-top:0;
+	border-top-style:none;
+}
+#footer-columns {
+	padding-bottom:5%;
+}
+#footer-columns > .column {
+	margin-bottom:0;
+}
+#footer-contact {
+	max-width:25%;
+}
+#footer-newsletter {
+	max-width:46%;
+}
+#footer-social {
+	max-width:26%;
+	min-width:16%;
+	text-align:right;
+}
+#footer-social ul {
+	margin-top:0.5em;
 }
 
 #collection > aside,
