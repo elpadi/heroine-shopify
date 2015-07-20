@@ -3,7 +3,7 @@
   <!-- Begin empty cart -->
   {% if cart.item_count == 0 %}
   <div class="row">
-    <div class="span12 expanded-message">
+    <div class="expanded-message">
       <br>
       <br>
       <h2 class="tc">{{ 'cart.general.empty' | t }}</h2>
@@ -14,7 +14,7 @@
   <!-- Begin cart -->
   {% else %}
   <div class="row">
-    <div class="span12">
+    <div class="">
       <h1>Shopping Bag</h1>
       <form action="/cart" method="post" id="cartform">
         <table>

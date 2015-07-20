@@ -31,6 +31,7 @@
 
   {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
   {{ 'styles.all.scss.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" href="{{ 'styles.mw500.scss.css' | asset_url }}" type="text/css" media="all and (min-width: 500px)">
   <link rel="stylesheet" href="{{ 'styles.mw768.scss.css' | asset_url }}" type="text/css" media="all and (min-width: 768px)">
   <link rel="stylesheet" href="{{ 'styles.mw1024.scss.css' | asset_url }}" type="text/css" media="all and (min-width: 1024px)">
   {{ 'social-buttons.scss.css' | asset_url | stylesheet_tag }}
@@ -166,7 +167,7 @@
 					{% endif %}
 				</section>
 				<nav id="bottom-links" class="double-bars--top">
-					<ul class="menu horizontal">
+					<ul class="menu unstyled horizontal">
 						<li><span>Copyright &copy; 2015 Heroine</span></li>
 						{% for link in linklists.bottom.links %}
 						<li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>

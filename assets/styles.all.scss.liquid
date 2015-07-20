@@ -78,21 +78,27 @@ body.mobile-menu-visible .header__mobile-menu {
 	visibility:visible;
 	transform:translateY(0);
 }
-body.mobile-menu-visible .flexslider-container {
+body.mobile-menu-visible .flexslider-container,
+body.mobile-menu-visible #slideshow-sale-tag {
 	opacity:0;
 	visibility:hidden;
-}
-body.mobile-menu-visible .header__mobile-menu {
-	transition:opacity 0.5s 0.5s, visibility 0s 0.1s, transform 0.5s 0.5s;
-}
-body.mobile-menu-visible .flexslider-container {
-	transition:opacity 0.5s, visibility 0s 0.5s;
 }
 .header__mobile-menu {
 	transition:opacity 0.5s, visibility 0s 0.5s, transform 0.5s;
 }
-.flexslider-container {
+.flexslider-container,
+#slideshow-sale-tag {
 	transition:opacity 0.5s 0.5s, visibility 0s;
+}
+body.mobile-menu-visible .header__mobile-menu {
+	transition:opacity 0.5s, visibility 0s 0s, transform 0.5s;
+}
+body.template--index.mobile-menu-visible .header__mobile-menu {
+	transition:opacity 0.5s 0.5s, visibility 0s 0.1s, transform 0.5s 0.5s;
+}
+body.mobile-menu-visible .flexslider-container,
+body.mobile-menu-visible #slideshow-sale-tag {
+	transition:opacity 0.5s, visibility 0s 0.5s;
 }
 
 .header__mobile-buttons button,
@@ -214,9 +220,7 @@ body {
 }
 .header__mobile-buttons {
 	text-transform:uppercase;
-	position:absolute;
-	bottom:30px;
-	right:0;
+	margin-bottom:3%;
 }
 .header__mobile-buttons button,
 .header__mobile-buttons a {
@@ -235,9 +239,9 @@ body {
 	margin-bottom:3%;
 }
 #logo {
-	float:left;
-	margin-left:-7px;
-	width:35%;
+	margin-left:auto;
+	margin-right:auto;
+	width:60%;
 }
 #logo > a {
 	display:block;
@@ -251,7 +255,6 @@ body {
 	margin-top:1px;
 }
 .header__mobile-menu {
-	padding:0 20px;
 	position:absolute;
 	top:0;
 	left:0;
@@ -262,7 +265,7 @@ body {
 }
 #mobile-main-menu {
 	background-color:#B49F62;
-	font-size:1.2em;
+	font-size:0.9em;
 	letter-spacing:1px;
 }
 #mobile-main-menu > ul {
@@ -310,6 +313,7 @@ body {
   top: -9px;
   z-index: 2;
   right: -11px;
+	width: 20%;
 }
 
 #main-footer {
@@ -373,14 +377,6 @@ body {
 }
 #bottom-links ul {
 }
-#bottom-links li {
-	display:inline-block;
-	padding:0 0.5em 0 2.5em;
-	background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAAP0lEQVQYlWP4TyZgwCb49sun/1eePfh/8cm9/88+vP3/5+9f/BphGs49uoOCsRnAgE8DLgMo10i2UykOHFIAAKBArHYdl/RcAAAAAElFTkSuQmCC) left top no-repeat;
-}
-#bottom-links li:first-child {
-	background-image:none;
-}
 #bottom-links a {
 	font-size:1em;
 	line-height:1;
@@ -403,12 +399,11 @@ body {
 }
 h1.collection-title {
 	font-size:1.4em;
-	margin-top:1%;
+	margin-top:0.5em;
 	margin-bottom:5%;
-	padding:0 20px;
 }
 .template--product h1.collection-title {
-	margin-bottom:1.5%;
+	margin-bottom:1em;
 }
 #collection-main,
 #product-main {
@@ -428,8 +423,15 @@ h1.collection-title {
 	display:block;
 }
 #collection .product {
-	width:30.5%;
+	float:left;
+	width:47%;
 	margin:0 1.4% 3%;
+}
+#collection .product--odd {
+	clear:left;
+}
+#collection .clear-row {
+	display:none;
 }
 #collection .image {
 	background:white none center center no-repeat;
@@ -443,9 +445,6 @@ h1.collection-title {
 }
 #collection-products img {
 	display:none;
-}
-#collection .details {
-	font-size:1.4em;
 }
 #collection .title {
 	line-height:1;
@@ -467,9 +466,7 @@ h1.collection-title {
 }
 #product-main {
 	position:relative;
-	padding-top:5%;
-	margin-left:20px;
-	margin-right:20px;
+	padding-top:60px;
 }
 #product-back-button {
 	position:absolute;
@@ -487,7 +484,7 @@ h1.collection-title {
 	text-align:center;
 }
 #product > .image img {
-	max-width:80%;
+	max-width:90%;
 }
 #product > .info {
 	font-size:1.3em;
@@ -508,8 +505,7 @@ h1.collection-title {
 	margin-bottom:0;
 }
 #product > .info > header {
-	margin-bottom:1%;
-	font-size:1.2em;
+	margin-bottom:0.5em;
 }
 #product .description {
 	font-size:0.9em;
@@ -536,9 +532,6 @@ h1.collection-title {
 #product input,
 #product select {
 	margin-bottom:5%;
-}
-.single-option-selector {
-	display:none;
 }
 
 #customer-order,
@@ -578,8 +571,7 @@ h1.collection-title {
 	margin-bottom:5%;
 }
 #blog > .articles {
-	width:64.13%;
-	font-size:0.9em;
+	width:100%;
 }
 .comments-button {
 	display:block;
@@ -595,7 +587,8 @@ h1.collection-title {
 	margin-right:0.5em;
 }
 #blog > aside {
-	width:30.25%;
+	width:100%;
+	margin-top:4em;
 }
 #blog-sidebar {
 	text-align:center;
@@ -635,8 +628,7 @@ h1.collection-title {
 	margin-bottom:25%;
 }
 #blog-sidebar > .about > h2 {
-	margin-top:0;
-	margin-bottom:10%;
+	display:none;
 }
 #blog-sidebar > .about > p {
 	text-align:left;
@@ -692,7 +684,7 @@ h1.collection-title {
 }
 
 #cart-animation {
-	display:none;
+	display:none !important;
 }
 
 #add_address h4 {
