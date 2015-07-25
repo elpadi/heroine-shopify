@@ -52,7 +52,8 @@
 						{% unless product.available %}
 						<p>{{ 'products.product.sold_out_html' | t }}</p>
 						{% else %}
-						<input type="submit" id="add-to-cart" class="btn addtocart" name="add" value="{{ 'products.product.add_to_cart' | t }}" />
+						<input type="submit" id="add-to-cart" class="btn fl addtocart" name="add" value="{{ 'products.product.add_to_cart' | t }}" />
+						<input type="submit" id="add-to-cart" class="btn fr addtocart" name="wishlist" value="Add to wish list" />
 						<div id="cart-animation" style="display:none">1</div>
 						{% endunless %}
 					</div>
@@ -63,8 +64,13 @@
 		</form>
 		<!-- Begin social buttons -->
 		{% if settings.social_sharing_products %}
+		{% capture twitter_text %}<a href="{{ shop.url | append: product.url }}">{{ product.title }}</a> from @heroineboutique.{% endcapture %}
 		<footer>
-			{% include 'social-sharing' %}
+			<section class="sharing-buttons">
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u={{ shop.url | append: product.url | url_param_escape }}" class="fl"><span class="icon-social facebook">&nbsp;</span>Love it</a>
+				<a target="_blank" href="http://twitter.com/share?text={{ twitter_text | url_param_escape }}" class="fr"><span class="icon-social twitter">&nbsp;</span>Tweet</a>
+				<a target="_blank" href="http://pinterest.com/pin/create/button/?url={{ shop.url | append: product.url | url_param_escape }}&media={{ product.images[0] | product_img_url: 'grande' | url_param_escape }}&description={{ product.title | url_param_escape }}" class="fl"><span class="icon-social pinterest">&nbsp;</span>Pin it</a>
+			</section>
 		</footer>
 		{% endif %}
 		<!-- End social buttons -->
