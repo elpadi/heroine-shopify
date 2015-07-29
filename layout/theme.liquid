@@ -92,17 +92,26 @@
 			</form>
         </section>
 		{% endif %}
-        <section class="header__search-and-buttons fr">
+        <section class="header__search-and-buttons">
+          <div class="customer-buttons font--bg-reg">
+						{% if customer %}
+						<a href="/account" class="ghost icon">Account</a>
+						<span class="sep">|</span>
+						<a href="/wishlist">Wishlist</a>
+						{% else %}
+						<a href="/account/login" class="ghost icon">Log In</a>
+						<span class="sep">|</span>
+						<a href="/account/register">Register</a>
+						{% endif %}
+						<span class="sep">|</span>
+						<a href="/cart" class="bag icon"><img src="{{ 'bag.svg' | asset_url }}" alt="Shopping Bag"></a>
+          </div>
           {% if settings.display_search %}
           <form class="search fr" action="/search">
             <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t | upcase }}" value="{{ search.terms }}"  />
             <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
           </form>
           {% endif %}
-          <div class="customer-buttons fr tr">
-            <a href="/cart" class="cart fr"><img src="{{ 'icon-cart.png' | asset_url }}" alt="Shopping Cart"></a>
-            <p class="fl">{% include 'customer_links' %}</p>
-          </div>
         </section>
       </div>
       <div class="inside-margins clearfix">
