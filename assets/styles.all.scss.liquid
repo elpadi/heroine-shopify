@@ -234,6 +234,9 @@ input.btn.fr {
 .dotted-borders {
 	border-image:url({{ 'dotted-border.png' | asset_url }}) 5 5 5 5 round round;
 }
+.no-borderimage .dotted-borders {
+	border:1px solid rgb(205,225,220);
+}
 
 .social-media-buttons {
 }
@@ -790,3 +793,23 @@ h1.collection-title {
 	font-size:1.075em;
 }
 
+.page--press .page-content {
+	overflow:auto;
+}
+.page--press h2 {
+	clear:both;
+	color:#808080;
+}
+.page--press a {
+	float:left;
+	margin-right:50px;
+	margin-bottom:25px;
+	vertical-align:middle;
+}
+.page--press a:nth-of-type(6n) {
+	clear:left;
+}
+.page--press img {
+	height:133px;
+	width:auto;
+}
