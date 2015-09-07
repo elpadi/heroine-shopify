@@ -67,9 +67,9 @@
 		{% capture twitter_text %}<a href="{{ shop.url | append: product.url }}">{{ product.title }}</a> from @heroineboutique.{% endcapture %}
 		<footer>
 			<section class="sharing-buttons">
-				<a target="_blank" href="http://www.facebook.com/sharer.php?u={{ shop.url | append: product.url | url_param_escape }}" class="fl"><span class="icon-social facebook">&nbsp;</span>Love it</a>
-				<a target="_blank" href="http://twitter.com/share?text={{ twitter_text | url_param_escape }}" class="fr"><span class="icon-social twitter">&nbsp;</span>Tweet</a>
-				<a target="_blank" href="http://pinterest.com/pin/create/button/?url={{ shop.url | append: product.url | url_param_escape }}&media={{ product.images[0] | product_img_url: 'grande' | url_param_escape }}&description={{ product.title | url_param_escape }}" class="fl"><span class="icon-social pinterest">&nbsp;</span>Pin it</a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u={{ shop.url | append: product.url | url_param_escape }}" class=""><span class="icon-social facebook">&nbsp;</span>Love it</a>
+				<a target="_blank" href="http://twitter.com/share?text={{ twitter_text | url_param_escape }}" class=""><span class="icon-social twitter">&nbsp;</span>Tweet</a>
+				<a target="_blank" href="http://pinterest.com/pin/create/button/?url={{ shop.url | append: product.url | url_param_escape }}&media={{ product.images[0] | product_img_url: 'grande' | url_param_escape }}&description={{ product.title | url_param_escape }}" class=""><span class="icon-social pinterest">&nbsp;</span>Pin it</a>
 			</section>
 		</footer>
 		{% endif %}
