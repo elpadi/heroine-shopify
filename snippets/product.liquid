@@ -52,8 +52,8 @@
 						{% unless product.available %}
 						<p>{{ 'products.product.sold_out_html' | t }}</p>
 						{% else %}
-						<input type="submit" id="add-to-cart" class="btn btn--red fl addtocart" name="add" value="{{ 'products.product.add_to_cart' | t }}" />
-						<input type="submit" id="add-to-cart" class="btn btn--turquoise fr wishlist" name="wishlist" value="Add to wish list" />
+						<input type="submit" id="add-to-cart" class="btn btn--red fl addtocart" name="add" value="Add to bag" />
+						<input type="submit" id="add-to-wishlist" class="btn btn--turquoise fr wishlist" name="wishlist" value="Add to wish list" />
 						<div id="cart-animation" style="display:none">1</div>
 						{% endunless %}
 					</div>

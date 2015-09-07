@@ -33,6 +33,15 @@ h1 {
 input {
 	color:#656263;
 }
+::-webkit-input-placeholder {
+	color:#656263;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+	color:#656263;
+}
+:-ms-input-placeholder {  
+	color:#656263;
+}
 nav > ul.horizontal > li {
 	margin-bottom:0.5em;
 }
@@ -182,6 +191,7 @@ body.mobile-menu-visible #slideshow-sale-tag {
 	padding:0;
 }
 
+.button-border,
 input.btn {
 	text-transform:uppercase;
 	letter-spacing:1px;
@@ -195,10 +205,12 @@ input.btn {
 	font-weight:900;
 	border-radius:0;
 }
+.button-border.btn--red,
 input.btn.btn--red {
 	background-color:#F58778;
 	outline-color:#F58778;
 }
+.button-border.btn--turquoise,
 input.btn.btn--turquoise {
 	background-color:#B5D6D0;
 	outline-color:#B5D6D0;
