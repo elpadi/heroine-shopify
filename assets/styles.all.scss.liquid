@@ -256,6 +256,9 @@ input.btn.fr {
 .dotted-borders {
 	border-image:url({{ 'dotted-border.png' | asset_url }}) 5 5 5 5 round round;
 }
+.no-borderimage .dotted-borders {
+	border:1px solid rgb(205,225,220);
+}
 
 .social-media-buttons {
 }
@@ -284,10 +287,10 @@ body {
 }
 .header__mobile-buttons button,
 .header__mobile-buttons a {
-	color:#C0AE74;
+	color:#b79f63;
 }
 .header__mobile-buttons .sep {
-	border-right:1px solid #C0AE74;
+	border-right:1px solid #b79f63;
 	margin:0 0.7em 0 0.4em;
 	font-size:0.6em;
 }
@@ -346,6 +349,10 @@ body {
 }
 .customer-buttons {
 	clear:both;
+	text-transform:uppercase;
+}
+.customer-buttons, #main-header .customer-buttons a {
+	color:#b79f62;
 }
 #main-header .customer-buttons > p {
 	margin-top:5px;
@@ -358,18 +365,22 @@ body {
 	letter-spacing:0.05em;
 	text-transform:uppercase;
 	display:inline-block;
-	line-height:20px;
+	line-height:14px;
 	vertical-align:middle;
 }
 #main-header .customer-buttons a::after {
 	content:'|';
-	margin:0 5px;
+	margin:0 5px 0 10px;
 }
 #main-header .customer-buttons a:last-child::after {
 	display:none;
 }
 #main-header .customer-buttons img {
-	height:20px;
+	height:21px;
+}
+#main-header .customer-buttons .sep {
+	font-size:0.7em;
+	margin:0 0.8em;
 }
 
 #main-menu {
@@ -623,9 +634,6 @@ h1.collection-title {
 }
 #product .btn {
 }
-#product .btn {
-	width:46%;
-}
 #product .sharing-buttons a {
 	display:block;
 }
@@ -815,3 +823,23 @@ h1.collection-title {
 	font-size:1.075em;
 }
 
+.page--press .page-content {
+	overflow:auto;
+}
+.page--press h2 {
+	clear:both;
+	color:#808080;
+}
+.page--press a {
+	float:left;
+	margin-right:50px;
+	margin-bottom:25px;
+	vertical-align:middle;
+}
+.page--press a:nth-of-type(6n) {
+	clear:left;
+}
+.page--press img {
+	height:133px;
+	width:auto;
+}

@@ -42,22 +42,12 @@
   {% if settings.base_font contains 'Google' %}
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.base_font | remove: 'Google+' }}:300,400,700">
   {% endif %}
-  {{ 'html5shiv.js' | asset_url | script_tag }}
+  {{ 'modernizr.js' | asset_url | script_tag }}
 
   {{ content_for_header }}
 
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
   {{ 'jquery-migrate-1.2.0.min.js' | asset_url | script_tag }}
-
-  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
-
-  {% if template contains 'customers' %}
-  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-  {% endif %}
-  {{ 'scripts.js' | asset_url | script_tag }}
-  {{ 'social-buttons.js' | asset_url | script_tag }}
 
 </head>
 
@@ -153,15 +143,15 @@
 					<div id="footer-social" class="column">
 						<h2 id="heading-follow-us">{{ 'layout.footer.follow_us' | t }}</h2>
 						<ul class="social-media-buttons">
-							{% if settings.facebook_link != blank %}<li><a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook">Facebook</a></li>{% endif %}
-							{% if settings.twitter_link != blank %}<li><a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter">Twitter</a></li>{% endif %}
-							{% if settings.pinterest_link != blank %}<li><a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest">Pinterest</a></li>{% endif %}
-							{% if settings.instagram_link != blank %}<li><a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram">Instagram</a></li>{% endif %}
-							{% if settings.youtube_link != blank %}<li><a href="{{ settings.youtube_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Youtube' }}" class="icon-social youtube">YouTube</a></li>{% endif %}
-							{% if settings.atom_link != blank %}<li><a href="{{ settings.atom_link }}" title="{{ 'layout.footer.news' | t: shop: shop.name }}" class="icon-social atom">Blog feed</a></li>{% endif %}
-							{% if settings.vimeo_link != blank %}<li><a href="{{ settings.vimeo_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Vimeo' }}" class="icon-social vimeo">Vimeo</a></li>{% endif %}
-							{% if settings.tumblr_link != blank %}<li><a href="{{ settings.tumblr_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Tumblr' }}" class="icon-social tumblr">Tumblr</a></li>{% endif %}
-							{% if settings.google_link != blank %}<li><a href="{{ settings.google_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Google+' }}" class="icon-social google" rel="publisher">Google+</a></li>{% endif %}
+							{% if settings.facebook_link != blank %}<li><a href="{{ settings.facebook_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Facebook' }}" class="icon-social facebook" target="_blank">Facebook</a></li>{% endif %}
+							{% if settings.twitter_link != blank %}<li><a href="{{ settings.twitter_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Twitter' }}" class="icon-social twitter" target="_blank">Twitter</a></li>{% endif %}
+							{% if settings.pinterest_link != blank %}<li><a href="{{ settings.pinterest_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Pinterest' }}" class="icon-social pinterest" target="_blank">Pinterest</a></li>{% endif %}
+							{% if settings.instagram_link != blank %}<li><a href="{{ settings.instagram_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Instagram' }}" class="icon-social instagram" target="_blank">Instagram</a></li>{% endif %}
+							{% if settings.youtube_link != blank %}<li><a href="{{ settings.youtube_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Youtube' }}" class="icon-social youtube" target="_blank">YouTube</a></li>{% endif %}
+							{% if settings.atom_link != blank %}<li><a href="{{ settings.atom_link }}" title="{{ 'layout.footer.news' | t: shop: shop.name }}" class="icon-social atom" target="_blank">Blog feed</a></li>{% endif %}
+							{% if settings.vimeo_link != blank %}<li><a href="{{ settings.vimeo_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Vimeo' }}" class="icon-social vimeo" target="_blank">Vimeo</a></li>{% endif %}
+							{% if settings.tumblr_link != blank %}<li><a href="{{ settings.tumblr_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Tumblr' }}" class="icon-social tumblr" target="_blank">Tumblr</a></li>{% endif %}
+							{% if settings.google_link != blank %}<li><a href="{{ settings.google_link }}" title="{{ 'layout.footer.social' | t: shop: shop.name, social_media: 'Google+' }}" class="icon-social google" rel="publisher" target="_blank">Google+</a></li>{% endif %}
 						</ul>
 					</div>
 					<!-- End social -->
@@ -178,6 +168,16 @@
 			</div>
 		</footer>
   </div>
+
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+  {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+
+  {% if template contains 'customers' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+  {{ 'scripts.js' | asset_url | script_tag }}
+  {{ 'social-buttons.js' | asset_url | script_tag }}
 
   {{ 'jquery.flexslider-min.js' | asset_url | script_tag }}
 
