@@ -19,6 +19,14 @@
 	font-style:normal;
 }
 
+.min768 {
+	display:none;
+}
+.svg-icon > img {
+	height:1em;
+	width:auto;
+}
+
 body {
 	overflow-x:hidden;
 }
@@ -345,9 +353,23 @@ body {
 }
 #main-header .customer-buttons a {
 	color:#b79f62;
-	font:0.75em brandon_grotesque_regularRg,sans-serif;
+	font:11px brandon_grotesque_regularRg,sans-serif;
+	font-weight:900;
 	letter-spacing:0.05em;
 	text-transform:uppercase;
+	display:inline-block;
+	line-height:20px;
+	vertical-align:middle;
+}
+#main-header .customer-buttons a::after {
+	content:'|';
+	margin:0 5px;
+}
+#main-header .customer-buttons a:last-child::after {
+	display:none;
+}
+#main-header .customer-buttons img {
+	height:20px;
 }
 
 #main-menu {
