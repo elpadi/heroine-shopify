@@ -78,6 +78,7 @@ a:hover {
 input,
 .font--bg-reg,
 .template--customers form,
+.page--press .page-content,
 .font--bg-reg button {
 	font-family:brandon_grotesque_regularRg,sans-serif;
 }
@@ -85,6 +86,10 @@ input,
 #blog,
 .font--georgia {
 	font-family:Georgia, Utopia, 'Times New Roman', Times, serif
+}
+.page-content h2,
+.page-content h3 {
+	font-family:brandon_grotesquemedium,sans-serif;
 }
 
 .header__mobile-menu {
@@ -837,12 +842,21 @@ h1.collection-title {
 	font-size:1.075em;
 }
 
-.page--press .page-content {
+.template--page.press .page-content {
 	overflow:auto;
+	font-size:0.85em;
+}
+.template--page.press h2 {
+	color:#808080;
+}
+.template--page.press #page:not(.page--press) h2 {
+	margin:8px 0 0;
+}
+.template--page.press p {
+	margin-bottom:17px;
 }
 .page--press h2 {
 	clear:both;
-	color:#808080;
 }
 .page--press a {
 	float:left;
@@ -850,10 +864,15 @@ h1.collection-title {
 	margin-bottom:25px;
 	vertical-align:middle;
 }
+.page--press .page-content > a {
+	width:100px;
+}
 .page--press a:nth-of-type(6n) {
 	clear:left;
 }
 .page--press img {
 	height:133px;
-	width:auto;
+	width:100%;
+	object-fit:cover;
+	object-position:left top;
 }
