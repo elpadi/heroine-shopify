@@ -77,6 +77,7 @@ a:hover {
 
 input,
 .font--bg-reg,
+.template--customers form,
 .font--bg-reg button {
 	font-family:brandon_grotesque_regularRg,sans-serif;
 }
@@ -173,10 +174,12 @@ body.mobile-menu-visible #slideshow-sale-tag {
 	width:100%;
 }
 .search > input[type="text"] {
+	max-width:-webkit-calc(100% - 36px);
 	max-width:calc(100% - 36px);
 }
 .newsletter-inputs .form-item {
-	width:calc(100% - 86px);
+	width:-webkit-calc(100% - 91px);
+	width:calc(100% - 91px);
 }
 .newsletter-inputs .form-text {
 	line-height:30px;
@@ -233,12 +236,15 @@ input.btn.fr {
 .double-bars--all {
 	position:relative;
 	border:solid 1px #E4E1DC;
+	max-width:-webkit-calc(100% - 12px);
 	max-width:calc(100% - 12px);
 }
 .double-bars--all::before {
 	content:'';
 	position:absolute;
+	width:-webkit-calc(100% + 12px);
 	width:calc(100% + 12px);
+	height:-webkit-calc(100% + 12px);
 	height:calc(100% + 12px);
 	left:-7px;
 	top:-7px;
@@ -254,6 +260,8 @@ input.btn.fr {
 #customer-register input.text,
 #customer-login input.text,
 .dotted-borders {
+	border:2px solid #D0F3F3;
+	-webkit-border-image:url({{ 'dotted-border.png' | asset_url }}) 5 5 5 5 round round;
 	border-image:url({{ 'dotted-border.png' | asset_url }}) 5 5 5 5 round round;
 }
 .no-borderimage .dotted-borders {
@@ -361,7 +369,6 @@ body {
 #main-header .customer-buttons a {
 	color:#b79f62;
 	font:11px brandon_grotesque_regularRg,sans-serif;
-	font-weight:900;
 	letter-spacing:0.05em;
 	text-transform:uppercase;
 	display:inline-block;
@@ -542,7 +549,6 @@ h1.collection-title {
 	color:#666;
 }
 #collection .price del {
-	display:none;
 }
 #pagination-area {
 	margin-top:5%;
@@ -756,6 +762,7 @@ h1.collection-title {
 	width:80%;
 }
 #blog-sidebar .search_box {
+	width:-webkit-calc(100% - 33px);
 	width:calc(100% - 33px);
 }
 #blog-sidebar .social-media-buttons {
