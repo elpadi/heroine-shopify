@@ -73,6 +73,7 @@
 				{% endif %}
 				<span class="sep">&nbsp;</span>
 				<a href="/cart" class="bag icon">Shopping Bag</a>
+				<span class="cart-count">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
 			</div>
         </section>
 		{% if settings.display_search %}
@@ -87,6 +88,7 @@
           <div class="customer-buttons fr tr row">
             {% include 'customer_links' %}
 			<a href="/cart" class="svg-icon"><img src="{{ 'bag.svg' | asset_url }}" alt="Shopping Bag"></a>
+			{% if settings.ajax_cart_enable %}<span class="cart-count">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>{% endif %}
           </div>
           {% if settings.display_search %}
           <form class="search fr row" action="/search">

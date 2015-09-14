@@ -19,64 +19,17 @@ $(document).ready(function(){
    });   
    {% endif %}
 
+	 var $count = $('.cart-count');
+
    Shopify.onSuccess = function() {
 
-      var elem = $('.addtocart');
+      var add = parseInt(jQuery('[name="quantity"]').val(), 10) || 1;
+			var current = parseInt($count.first().text(), 10);
 
-      elem.removeAttr("disabled");
-
-      var quantity = parseInt(jQuery('[name="quantity"]').val(), 10) || 1;
+			$count.html(add + (isNaN(current) ? 0 : current));
 
       $("html, body").animate({ scrollTop: 0 }, 250, 'swing');
 
-      function animate() {
-
-        $("#cart-animation").show();
-
-        var addtocartWidth = elem.outerWidth() / 2
-        var addtocartHeight = elem.outerHeight() / 2
-
-        var addtocartLeft = elem.offset().left + addtocartWidth;
-        var addtocartTop = $(elem).offset().top + addtocartHeight ;
-
-        var buttonAreaWidth = $("#cart-target").outerWidth();
-        var buttonAreaHeight = $("#cart-target").outerHeight();
-
-        var buttonAreaLeft = ($("#cart-target").offset().left + buttonAreaWidth / 2  - $("#cart-animation").outerWidth() / 2) - 4 - 18;
-        var buttonAreaTop = ($("#cart-target").offset().top + buttonAreaWidth / 2  - $("#cart-animation").outerHeight() / 2) - 4 - 8;
-
-        var path = {
-          start: {
-            x: addtocartLeft,
-            y: addtocartTop,
-            angle: 190.012,
-            length: 0.2
-          },
-          end: {
-            x: buttonAreaLeft,
-            y: buttonAreaTop,
-            angle: 90.012,
-            length: 0.50
-          }
-        };
-
-        $('#cart-animation').text(quantity).animate(
-        {
-          path : new $.path.bezier(path)
-        },
-        1200,
-        function() {
-          $("#cart-animation").fadeOut(500, function() {
-            $(elem).prop("disabled", false)
-            var cartCount =  parseInt($('#cart-count').text()) + quantity;
-            $('#cart-count').text(cartCount)
-            $('#cart-target').addClass('has-items');
-          })
-        }
-        );
-      }
-
-      animate();
     };
 
     Shopify.onError = function(XMLHttpRequest, textStatus) {

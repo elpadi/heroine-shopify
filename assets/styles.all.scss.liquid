@@ -215,7 +215,6 @@ input.btn {
 	outline:3px solid white;
 	margin-left:3px;
 	margin-top:3px;
-	font-weight:900;
 	border-radius:0;
 }
 .button-border.btn--red,
@@ -379,7 +378,7 @@ body {
 	content:'|';
 	margin:0 5px 0 10px;
 }
-#main-header .customer-buttons a:last-child::after {
+#main-header .customer-buttons a:nth-last-of-type(1)::after {
 	display:none;
 }
 #main-header .customer-buttons img {
@@ -389,6 +388,14 @@ body {
 	font-size:0.7em;
 	margin:0 0.8em;
 }
+/*
+#main-header .customer-buttons .cart-count::before {
+	content:'(';
+}
+#main-header .customer-buttons .cart-count::after {
+	content:')';
+}
+*/
 
 #main-menu {
 	display:none;
