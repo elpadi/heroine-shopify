@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" title="Menu">
+	<line stroke-width="10" stroke="#b79f62" fill="none" x1="10" x2="90" y1="30" y2="30"/>
+	<line stroke-width="10" stroke="#b79f62" fill="none" x1="10" x2="90" y1="50" y2="50"/>
+	<line stroke-width="10" stroke="#b79f62" fill="none" x1="10" x2="90" y1="70" y2="70"/>
+</svg>

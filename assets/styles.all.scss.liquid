@@ -25,6 +25,7 @@
 .svg-icon > img {
 	height:1em;
 	width:auto;
+	vertical-align:middle;
 }
 
 body {
@@ -37,6 +38,9 @@ h1 {
 	line-height: 1;
 	text-transform:uppercase;
 	letter-spacing:2px;
+}
+button {
+	font-family:inherit;
 }
 #main-footer,
 input {
@@ -87,6 +91,7 @@ input,
 .font--georgia {
 	font-family:Georgia, Utopia, 'Times New Roman', Times, serif
 }
+.font--bg-med,
 .page-content h2,
 .page-content h3 {
 	font-family:brandon_grotesquemedium,sans-serif;
@@ -294,20 +299,28 @@ body {
 	position:relative;
 }
 .header__mobile-buttons {
+	font-size:1.2em;
 	text-transform:uppercase;
 	margin-bottom:3%;
+	padding:0.1em 0;
+	text-align:center;
 }
 .header__mobile-buttons button,
 .header__mobile-buttons a {
+	letter-spacing:0.1em;
 	color:#b79f63;
+	vertical-align:middle;
 }
-.header__mobile-buttons .sep {
-	border-right:1px solid #b79f63;
-	margin:0 0.7em 0 0.4em;
-	font-size:0.6em;
+.header__mobile-buttons img {
+	height:1.6em;
+	margin-top:-0.25em;
 }
-.header__search-and-buttons {
-	display:none;
+.burger {
+	line-height:2.6;
+}
+.burger > img {
+	height:2.5em;
+	margin-top:-0.3em;
 }
 .header__mobile-search {
 	clear:both;
@@ -379,10 +392,13 @@ body {
 	line-height:14px;
 	vertical-align:middle;
 }
+.header__mobile-buttons > a::after,
+.header__mobile-buttons > button::after,
 #main-header .customer-buttons a::after {
 	content:'|';
-	margin:0 5px 0 10px;
+	margin:0 7px 0 12px;
 }
+.header__mobile-buttons > a:nth-last-of-type(1)::after,
 #main-header .customer-buttons a:nth-last-of-type(1)::after {
 	display:none;
 }

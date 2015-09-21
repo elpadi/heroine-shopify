@@ -59,20 +59,11 @@
         <section class="header__logo fl">
 			<h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
 			<h2 id="headline" class="min768"><img src="{{ 'headline.png' | asset_url }}" alt="Boutique for ladies, moms &amp; babies"></h2>
-			<div class="mobile-only header__mobile-buttons">
-				<button class="burger icon" id="menu-toggler">Menu</button>
-				<span class="sep">&nbsp;</span>
-				{% if customer  %}
-					<a href="/account" class="ghost icon">Account</a>
-					<span class="sep">&nbsp;</span>
-					<a href="/wishlist">Wishlist</a>
-				{% else %}
-					<a href="/account/login" class="ghost icon">Log In</a>
-					<span class="sep">&nbsp;</span>
-					<a href="/account/register">Wishlist</a>
-				{% endif %}
-				<span class="sep">&nbsp;</span>
-				<a href="/cart" class="bag icon">Shopping Bag</a>
+			<div class="mobile-only header__mobile-buttons font--bg-med">
+				<button class="burger svg-icon" id="menu-toggler"><img src="{{ 'burger.svg' | asset_url }}" alt=""> Menu</button>
+				<a href="/account" class="svg-icon"><img src="{{ 'ghost.svg' | asset_url }}" alt="Log In / Edit Account"></a>
+				<a href="/{{ customer ? 'wishlist' : 'account/register' }}" class="">Wishlist</a>
+				<a href="/cart" class="svg-icon"><img src="{{ 'bag.svg' | asset_url }}" alt="Shopping Bag"></a>
 				<span class="cart-count">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
 			</div>
         </section>
@@ -84,7 +75,7 @@
 			</form>
         </section>
 		{% endif %}
-        <section class="header__search-and-buttons fr">
+        <section class="min768 header__search-and-buttons fr">
           <div class="customer-buttons fr tr row">
             {% include 'customer_links' %}
 			<a href="/cart" class="svg-icon"><img src="{{ 'bag.svg' | asset_url }}" alt="Shopping Bag"></a>
