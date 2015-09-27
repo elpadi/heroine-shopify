@@ -1,19 +1,12 @@
-{% if paginate.pages > 1 %}
+{% if paginate.pages > 3 %}
 {% unless template == 'customers/account' %}<footer id="pagination-area" class="font--georgia">{% endunless %}
-  <div>
-    <ul class="pagination clearfix">
-    {% if paginate.previous %}
-    	<li><a href="{{ paginate.previous.url }}" class="prev">{{ 'general.pagination.previous' | t }}</a></li>
-    {% else %}
-    	<li><span>{{ back_word }}</span></li>
-    {% endif %}
-    	<li>{{ 'general.pagination.summary' | t: current_page: paginate.current_page, pages: paginate.pages }}</li>
+  <div class="pagination-buttons">
     {% if paginate.next %}
-    	<li><a href="{{ paginate.next.url }}" class="next">{{ 'general.pagination.next' | t }}</a></li>
-    {% else %}
-    	<li><span>{{ next_word }}</span></li>
+		<a href="{{ paginate.next.url }}" class="fl">{{ 'general.pagination.next' | t }}</a>
     {% endif %}
-    </ul>
+    {% if paginate.previous %}
+		<a href="{{ paginate.previous.url }}" class="fr">{{ 'general.pagination.previous' | t }}</a>
+    {% endif %}
   </div>
 {% unless template == 'customers/account' %}</footer>{% endunless %}
 {% endif %}

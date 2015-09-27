@@ -5,8 +5,8 @@
       "subtext": "Sorry, we couldn't find this page."
     },
     "pagination": {
-      "previous": "Previous",
-      "next": "Next",
+      "previous": "Newer",
+      "next": "Older",
       "summary": "Page {{ current_page }} of {{ pages }}"
     },
     "breadcrumbs": {

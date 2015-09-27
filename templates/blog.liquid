@@ -2,7 +2,7 @@
 	<h1>{{ blog.title }}</h1>
   <!-- Begin content -->
   <div class="articles fl">
-    {% paginate blog.articles by 10 %}
+    {% paginate blog.articles by 3 %}
 		{% for article in blog.articles %}
 			{% include 'blog-article' %}
       {% unless forloop.last %}
