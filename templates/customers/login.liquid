@@ -6,6 +6,8 @@
       {% form 'customer_login' %}
       {{ form.errors | default_errors }}
 
+			<p>Don't have an account? <a href="/account/register">Register here</a>.</p>
+
       <label for="customer_email" class="label">{{ 'customer.login.email' | t }}</label>
       <input type="email" value="" name="customer[email]" id="customer_email" class="text" />
 
@@ -18,6 +20,7 @@
       <div class="action_bottom">
         <input class="btn btn--red" type="submit" value="{{ 'customer.login.sign_in' | t }}" />
       </div>
+
       {% endform %}
     </div>
 
