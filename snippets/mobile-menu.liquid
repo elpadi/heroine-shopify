@@ -1,39 +1,22 @@
-<div class="flyout">
-  <ul class="clearfix">
-    {% for link in linklists.main-menu.links %}
-    {% if linklists[link.handle] == empty %}
-    <li>
-      <a href="{{ link.url }}" class="{% if link.active %} current{% endif %} navlink"><span>{{ link.title }}</span></a>
-    </li>
-    {% else %}
-    <li>
-    <span class="more"><i class="fa fa-plus"></i></span>
-      <a href="{{ link.url }}" class="{% if link.active %} current{% endif %} navlink"><span>{{ link.title }}</span></a>
-      <ul class="sub-menu">
-        {% for l in linklists[link.handle].links %}
-        <li><a href="{{ l.url }}" class="{% if l.active %}current {% endif %}{% if forloop.last %} last {% endif %}   navlink">{{ l.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </li>
-    {% endif %}
-    {% endfor %}
-
-    {% if shop.customer_accounts_enabled %}
-      {% if customer  %}
-        <li class="customer-links"><a href="/account">{{ 'layout.customer.your_account' | t }}</a></li>
-      {% else %}
-        <li class="customer-links">{{ 'layout.customer.login' | t | customer_login_link }}</li>
-        {% if shop.customer_accounts_optional %}
-        <li class="customer-links">{{ 'layout.customer.create_account' | t | customer_register_link }}</li>
-        {% endif %}
-      {% endif %}
-    {% endif %}
-
-    <li class="search-field">
-      <form class="search" action="/search" id="search">
-        <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go" class="go" />
-        <input type="text" name="q" class="search_box" placeholder="{{ 'layout.header.search' | t }}" value="{{ search.  terms }}" />
-      </form>
-    </li>
-  </ul>
-</div>
+<ul class="root" data-level="0">
+  {% for link in linklists.main-menu.links %}
+	<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+  {% endfor %}
+</ul>
+{% assign roots = 'ladies,moms,babies,apothecary' | split: ',' %}
+{% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,apparel,ladies,moms,babies,apothecary" | split: ',' %}
+{% for submenu in submenus %}{% for root in roots %}
+	{% assign ll-handle = root | append: '-' | append: submenu %}
+	{% assign level = submenu | split: '-' | size | plus: 1 %}
+	{% if submenu == root %}
+	{% assign level = 1 %}
+	{% endif %}
+	{% unless linklists[ll-handle].empty? %}
+	<ul class="submenu" data-level="{{ level }}" data-root="{{ root }}" data-submenu="{% if level == 1 %}root{% else %}{{ submenu }}{% endif %}">
+		<li><a class="back" href="#">back to </a></li>
+		{% for link in linklists[ll-handle].links %}
+		<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endunless %}
+{% endfor %}{% endfor %}

@@ -4,14 +4,23 @@
 
 #logo {
 	float:left;
-	margin-left:-7px;
-	width:35%;
+	width:180px;
 }
 .header__mobile-buttons {
+	font-size:0.8em;
 	position:absolute;
-	bottom:30px;
+	bottom:26px;
 	right:0;
 	margin-bottom:0;
+}
+@media (min-width: 540px) {
+	.header__mobile-buttons {
+		font-size:0.9em;
+	}
+}
+.header__mobile-buttons .ghost > img {
+	height:2em;
+	margin-top:0;
 }
 .header__mobile-menu {
 	padding:0 20px;
