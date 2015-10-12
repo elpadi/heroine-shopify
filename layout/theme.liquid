@@ -56,13 +56,19 @@
   <div id="container">
     <header id="main-header">
       <div class="inside-margins clearfix">
-        <section class="header__logo fl">
+        <section class="header__logo">
 			<h1 id="logo"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="Heroine"></a></h1>
 			<h2 id="headline" class="min768"><img src="{{ 'headline.png' | asset_url }}" alt="Boutique for ladies, moms &amp; babies"></h2>
 			<div class="mobile-only header__mobile-buttons font--bg-med">
 				<button class="burger svg-icon" id="menu-toggler"><img src="{{ 'burger.svg' | asset_url }}" alt=""> Menu</button>
-				<a href="/account" class="svg-icon ghost"><img src="{{ 'ghost.svg' | asset_url }}" alt="Log In / Edit Account"></a>
-				<a href="/{{ customer ? 'wishlist' : 'account/register' }}" class="">Wishlist</a>
+				{% if shop.customer_accounts_enabled %}
+					<a href="/account" class="svg-icon ghost"><img src="{{ 'ghost.svg' | asset_url }}" alt="My Account"></a>
+					{% if customer %}
+					<a href="/wishlist">Wishlist</a>
+					{% else %}
+					{{ 'Wishlist' | customer_register_link }}
+					{% endif %}
+				{% endif %}
 				<a href="/cart" class="svg-icon bag"><img src="{{ 'bag.svg' | asset_url }}" alt="Shopping Bag"></a>
 				<span class="cart-count">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
 			</div>

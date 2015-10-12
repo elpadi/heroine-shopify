@@ -310,7 +310,6 @@ body {
 }
 
 .header__logo {
-	float:none;
 	overflow:auto;
 	position:relative;
 }
@@ -351,6 +350,22 @@ body {
 .burger > img {
 	height:2.5em;
 	margin-top:-0.3em;
+}
+/* remove menu text, leave burger icon only */
+@media (max-width: 300px) {
+	.burger {
+		position:relative;
+		width:52px;
+		white-space:nowrap;
+		overflow:hidden;
+	}
+	.burger > img {
+		margin-right:20px;
+	}
+	.burger::after {
+		position:absolute;
+		right:1px;
+	}
 }
 .header__mobile-search {
 	clear:both;
@@ -516,7 +531,6 @@ body {
 }
 #footer-menu {
 	margin-bottom:3%;
-	font-size:1.4em;
 	line-height:1.75;
 }
 #footer-menu li {
@@ -560,7 +574,7 @@ body {
 #heading-follow-us::after { background-image:url({{ 'heading-social.jpg' | asset_url }}) !important; }
 
 #footer-contact > p {
-	font-size:1.1em;
+	font-size:0.9em;
 	line-height:1.6;
 	margin-bottom:0;
 }
