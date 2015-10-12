@@ -2,6 +2,7 @@
   {% for link in linklists.main-menu.links %}
 	<li><a href="{{ link.url }}">{{ link.title }}</a></li>
   {% endfor %}
+	<li><a href="{{ collections.sale.url }}">{{ collections.sale.title }}</a></li>
 </ul>
 {% assign roots = 'ladies,moms,babies,apothecary' | split: ',' %}
 {% assign submenus = "apparel-tops,apparel-bottoms,apparel-dresses,apparel-infants,apparel-toddlers,apparel,ladies,moms,babies,apothecary" | split: ',' %}
