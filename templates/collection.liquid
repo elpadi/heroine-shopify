@@ -6,7 +6,7 @@
 		{% include 'collection-menu' %}
 		{% if collection.handle != 'sale' %}<a class="sale-button" href="{{ collections.sale.url }}"><img src="{{ 'sale-sign-left.png' | asset_url }}" alt="On Sale"></a>{% endif %}
 	</aside>
-	<section id="collection-main" class="fr">
+	<section id="collection-main" class="">
 		{% if 'ladies moms babies apothecary' contains collection.handle %}
 			<img src="{{ 'collection-' | append: collection.handle | append: '.jpg' | asset_url }}" alt="">
 		{% endif %}
