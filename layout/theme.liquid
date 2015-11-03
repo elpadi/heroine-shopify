@@ -64,7 +64,7 @@
 				{% if shop.customer_accounts_enabled %}
 					<a href="/account" class="svg-icon ghost"><img src="{{ 'ghost.svg' | asset_url }}" alt="My Account"></a>
 					{% if customer %}
-					<a href="/wishlist">Wishlist</a>
+					<a href="/apps/wishlist">Wishlist</a>
 					{% else %}
 					{{ 'Wishlist' | customer_register_link }}
 					{% endif %}
